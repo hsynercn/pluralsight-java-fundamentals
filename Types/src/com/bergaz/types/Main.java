@@ -44,7 +44,7 @@ public class Main {
         short resultb1 = byteVal;
         short resultb2 = (short) longVal;
 
-        short resultb3 = (short)(byteVal - longVal);
+        short resultb3 = (short) (byteVal - longVal);
         double resultb4 = longVal - floatVal - doubleVal;
 
         boolean cmp1 = 'b' > 'a';
@@ -62,14 +62,14 @@ public class Main {
         int value2 = 10;
         int maxValue = value1 > value2 ? value1 : value2;
 
-        if(value1 > value2)
+        if (value1 > value2)
             System.out.println("Value 1 is greater");
         else
             System.out.println("Value 2 is greater");
 
-        if(value1 > value2)
+        if (value1 > value2)
             System.out.println("Value 1 is greater");
-        else if(value2 > value1)
+        else if (value2 > value1)
             System.out.println("Value 2 is greater");
         else
             System.out.println("Value 1 and value 2 are equal");
@@ -79,16 +79,34 @@ public class Main {
         double result = 0.0d;
         char opCode = 'd';
 
-        if(opCode == 'a')
+        if (opCode == 'a') {
             result = value11 + value12;
-        else if(opCode == 's')
+        } else if (opCode == 's') {
             result = value11 - value12;
-        else if(opCode == 'm')
+        } else if (opCode == 'm') {
             result = value11 * value12;
-        else if(opCode == 'd')
+        } else if(opCode == 'd') {
             result = value11 / value12;
-        else
+        } else {
             result = 0.0d;
+        }
+
+        switch (opCode) {
+            case 'a':
+                result = value11 + value12;
+                break;
+            case 's':
+                result = value11 - value12;
+                break;
+            case 'm':
+                result = value11 * value12;
+                break;
+            case 'd':
+                result = value12 != 0 ? value11 / value12 : 0.0d;
+                break;
+            default:
+                result = 0.0d;
+        }
 
         int  c1 = 25, c2 = 20, c3 = 15;
         boolean cRes = c1 > c2 & c2 > c3;
@@ -121,5 +139,47 @@ public class Main {
             System.out.println("This is another block");
         }
 
+        int someValue = 4;
+        int factorial = 1;
+        while (someValue > 1) {
+            factorial *= someValue;
+            someValue--;
+        }
+
+        while (someValue > 0)
+            someValue--;
+
+        int iVal = 0;
+
+        do
+          iVal++;
+        while (iVal < 10);
+
+        do {
+            iVal--;
+        } while (iVal > 0);
+
+        int i = 1;
+        while (i < 100) {
+            System.out.println(i);
+            i *= 2;
+        }
+        for(i = 1; i < 100; i *= 2)
+            System.out.println(i);
+
+        float[] fVals = { 10.0f, 20.0f, 15.0f };
+        float sum = 0.0f;
+        for(int index = 0; index < fVals.length; index++)
+            sum += fVals[index];
+
+        sum = 0.0f;
+        for( float temp : fVals)
+            sum += temp;
+    }
+
+    static void swap(int i, int j) {
+        int k = i;
+        i = j;
+        j = k;//parameter passed by value, not effective outside of the method
     }
 }
