@@ -9,14 +9,31 @@ public class MathEquation {
     private static int numberOfCalculations;
     private static double sumOfResults;
 
+    public MathEquation(char opCode) {
+        this.opCode = opCode;
+    }
+
     public MathEquation(double leftVal, double rightVal, char opCode) {
+        this(opCode);
         this.leftVal = leftVal;
         this.rightVal = rightVal;
-        this.opCode = opCode;
     }
 
     public static double getAverageResult() {
         return sumOfResults / numberOfCalculations;
+    }
+
+    public void execute(double leftVal, double rightVal) {
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+        this.execute();
+    }
+
+    public void execute(int leftVal, int rightVal) {
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+        this.execute();
+        result = (int)result;
     }
 
     public void execute() {
