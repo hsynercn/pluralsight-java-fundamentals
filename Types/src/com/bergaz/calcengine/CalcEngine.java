@@ -1,5 +1,7 @@
-package com.bergaz.types;
+package com.bergaz.calcengine;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -36,10 +38,21 @@ public class CalcEngine {
 
     private static void performOperation(String[] parts) {
         char opCode = opCodeFromString(parts[0]);
-        double leftVal = valueFromWord(parts[1]);
-        double rightVal = valueFromWord(parts[2]);
-        double result = execute(opCode, leftVal, rightVal);
-        displayResult(opCode, leftVal, rightVal, result);
+        if(opCode == 'w') {
+            handleWhen(parts);
+        } else {
+            double leftVal = valueFromWord(parts[1]);
+            double rightVal = valueFromWord(parts[2]);
+            double result = execute(opCode, leftVal, rightVal);
+            displayResult(opCode, leftVal, rightVal, result);
+        }
+    }
+
+    private static void handleWhen(String[] parts) {
+        LocalDate startDate = LocalDate.parse(parts[1]);
+        long daysToAdd = (long) valueFromWord(parts[2]);
+        LocalDate newDate = startDate.plusDays(daysToAdd);
+        String out = String.format("%s plus %d is %d", startDate, daysToAdd, newDate);
     }
 
     private static char symbolFromOpCode(char opCode) {
