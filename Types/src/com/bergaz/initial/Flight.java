@@ -56,6 +56,9 @@ public class Flight {
 
     @Override
     public boolean equals(Object obj) {
+        if(super.equals(obj)) {
+            return true;
+        }
         if(obj instanceof Flight) {
             Flight f = (Flight) obj;
             return f.getFlightNumber() == this.getFlightNumber() &&

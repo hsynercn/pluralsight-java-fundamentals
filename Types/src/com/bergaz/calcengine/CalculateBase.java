@@ -1,9 +1,18 @@
 package com.bergaz.calcengine;
 
-public class CalculateBase {
+abstract public class CalculateBase {
     private double leftVal;
     private double rightVal;
     private double result;
+
+    public CalculateBase() {
+
+    }
+
+    public CalculateBase(double leftVal, double rightVal) {
+        this.leftVal = leftVal;
+        this.rightVal = rightVal;
+    }
 
     public double getLeftVal() {
         return leftVal;
@@ -29,6 +38,5 @@ public class CalculateBase {
         this.result = result;
     }
 
-    public void calculate() {
-    }
+    abstract public void calculate();
 }
