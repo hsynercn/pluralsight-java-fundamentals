@@ -1,10 +1,38 @@
 package com.bergaz.calcengine;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         //oldCalculations();
         doCalculation(new Divider(), 100.0d, 50.0d);
         doCalculation(new Adder(), 100.0d, 50.0d);
+    }
+
+    static void executeInteractively() {
+        System.out.println("Enter an operation and two numbers:");
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine();
+        String[] parts = userInput.split(" ");
+        performOperation(parts);
+    }
+    private static void performOperation(String[] parts) {
+        MathOperation operation = MathOperation.valueOf(parts[0].toUpperCase());
+        double leftVal = Double.parseDouble(parts[1]);
+        double rightVal = Double.parseDouble(parts[2]);
+        CalculateBase calculateBase = createCalculateBase(operation, leftVal, rightVal);
+        calculateBase.calculate();
+    }
+
+    private static CalculateBase createCalculateBase(MathOperation operation, double leftValue, double rightValue) {
+        CalculateBase calculation = null;
+        switch (operation) {
+            case ADD -> calculation = new Adder(leftValue,rightValue);
+            case DIVIDE -> calculation = new Divider(leftValue, rightValue);
+            case MULTIPLY -> calculation = new Multiplier(leftValue, rightValue);
+            case SUBTRACT -> calculation = new Subtracter(leftValue, rightValue);
+        }
+        return calculation;
     }
 
     static void doCalculation(CalculateBase calculateBase, double leftValue, double rightValue) {
