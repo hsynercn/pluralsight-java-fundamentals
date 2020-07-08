@@ -2,7 +2,7 @@ package com.bergaz.initial;
 
 import java.util.regex.PatternSyntaxException;
 
-final public class Passenger implements Comparable{
+final public class Passenger implements Comparable<Passenger>{
     private String name;
     private int memberLevel; //3 (1st priority), 2, 1
     private int memberDays;
@@ -12,16 +12,12 @@ final public class Passenger implements Comparable{
         this.memberLevel = memberLevel;
         this.memberDays = memberDays;
     }
-    public int compareTo(Object o) {
-        if(o instanceof Passenger) {
-            Passenger p = (Passenger) o;
-            int returnValue = p.memberLevel - memberLevel;
-            if(returnValue == 0) {
-                returnValue = p.memberDays - memberDays;
-            }
-            return returnValue;
-        } else {
-            return 0;
+
+    public int compareTo(Passenger p) {
+        int returnValue = p.memberLevel - memberLevel;
+        if (returnValue == 0) {
+            returnValue = p.memberDays - memberDays;
         }
+        return returnValue;
     }
 }
