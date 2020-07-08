@@ -6,7 +6,20 @@ public class CargoFlight extends Flight{
 
     private int seats = 12;
 
-    public void add1Package(float h, float w, float d) {
+    public CargoFlight(int flightNumber) {
+        super(flightNumber);
+    }
+
+    public CargoFlight(int flightNumber, float maxCargoSpace) {
+        this(flightNumber);
+        this.maxCargoSpace = maxCargoSpace;
+    }
+
+
+
+    /*
+    * No one can override this method*/
+    public final void add1Package(float h, float w, float d) {
         float volume = h * w * d;
         if(hasCargoSpace(volume)) {
             usedCargoSpace += volume;
