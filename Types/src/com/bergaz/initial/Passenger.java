@@ -20,4 +20,8 @@ final public class Passenger implements Comparable<Passenger>{
         }
         return returnValue;
     }
+
+    public String getName() {
+        return name;
+    }
 }

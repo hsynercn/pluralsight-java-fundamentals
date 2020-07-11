@@ -1,10 +1,16 @@
 package com.bergaz.initial;
 
-public class Flight {
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Flight implements Comparable<Flight>, Iterable<Passenger>{
+
     private int passengers, seats = 150;
     private int flightNumber;
     private char flightClass;
     private boolean[] isSeatAvailable = new boolean[seats];
+
+    private ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
 
     private static int allPassengers;
 
@@ -24,6 +30,10 @@ public class Flight {
 
     public Flight() {
 
+    }
+
+    public void addPassenger(Passenger p) {
+        this.passengerList.add(p);
     }
 
     public  Flight(int flightNumber) {
@@ -67,5 +77,15 @@ public class Flight {
             return false;
         }
 
+    }
+
+    @Override
+    public int compareTo(Flight o) {
+        return 0;
+    }
+
+    @Override
+    public Iterator<Passenger> iterator() {
+        return this.passengerList.iterator();
     }
 }

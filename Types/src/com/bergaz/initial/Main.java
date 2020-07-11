@@ -46,5 +46,15 @@ public class Main {
         };
         Arrays.sort(passengers);
 
+        Flight flight5 = new Flight(175);
+
+        for (Passenger tempPassenger : passengers) {
+            flight5.addPassenger(tempPassenger);
+        }
+
+        for(Passenger tempPassenger : flight5) {
+            System.out.println(tempPassenger.getName());
+        }
+
     }
 }
