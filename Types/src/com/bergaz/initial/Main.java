@@ -56,5 +56,9 @@ public class Main {
             System.out.println(tempPassenger.getName());
         }
 
+        for(Passenger tempPassenger : flight5.getOrderedPassengers()) {
+            System.out.println(tempPassenger.getName());
+        }
+
     }
 }

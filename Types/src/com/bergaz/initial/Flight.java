@@ -1,6 +1,7 @@
 package com.bergaz.initial;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class Flight implements Comparable<Flight>, Iterable<Passenger>{
@@ -11,6 +12,35 @@ public class Flight implements Comparable<Flight>, Iterable<Passenger>{
     private boolean[] isSeatAvailable = new boolean[seats];
 
     private ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
+
+    private class FlightIterable implements Iterable<Passenger> {
+
+        @Override
+        public Iterator<Passenger> iterator() {
+            Passenger[] passengers = new Passenger[passengerList.size()];
+            passengerList.toArray(passengers);
+            Arrays.sort(passengers);
+            return Arrays.asList(passengers).iterator();
+        }
+    }
+
+    public Iterable<Passenger> getOrderedPassengers() {
+        FlightIterable flightIterable = new FlightIterable();
+        return flightIterable;
+    }
+
+    //Anonymous class
+    public Iterable<Passenger> getOrderedPassengersAnon() {
+        return new Iterable<Passenger>() {
+            @Override
+            public Iterator<Passenger> iterator() {
+                Passenger[] passengers = new Passenger[passengerList.size()];
+                passengerList.toArray(passengers);
+                Arrays.sort(passengers);
+                return Arrays.asList(passengers).iterator();
+            }
+        };
+    }
 
     private static int allPassengers;
 

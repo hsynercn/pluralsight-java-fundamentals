@@ -1,6 +1,6 @@
 package com.bergaz.calcengine;
 
-public class Adder extends CalculateBase {
+public class Adder extends CalculateBase implements MathProcessing{
 
     public Adder() {
     }
@@ -13,5 +13,19 @@ public class Adder extends CalculateBase {
     public void calculate() {
         double value = super.getLeftVal() + super.getRightVal();
         super.setResult(value);
+    }
+
+    @Override
+    public String getKeyword() {
+        return "+";
+    }
+
+    @Override
+    public double doCalculation(double leftValue, double rightValue) {
+        setLeftVal(leftValue);
+        setRightVal(rightValue);
+        calculate();
+        return getResult();
+
     }
 }
