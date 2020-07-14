@@ -1,10 +1,46 @@
 package com.bergaz.initial;
 
-public class Flight {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
+public class Flight implements Comparable<Flight>, Iterable<Passenger>{
+
     private int passengers, seats = 150;
     private int flightNumber;
     private char flightClass;
     private boolean[] isSeatAvailable = new boolean[seats];
+
+    private ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
+
+    private class FlightIterable implements Iterable<Passenger> {
+
+        @Override
+        public Iterator<Passenger> iterator() {
+            Passenger[] passengers = new Passenger[passengerList.size()];
+            passengerList.toArray(passengers);
+            Arrays.sort(passengers);
+            return Arrays.asList(passengers).iterator();
+        }
+    }
+
+    public Iterable<Passenger> getOrderedPassengers() {
+        FlightIterable flightIterable = new FlightIterable();
+        return flightIterable;
+    }
+
+    //Anonymous class
+    public Iterable<Passenger> getOrderedPassengersAnon() {
+        return new Iterable<Passenger>() {
+            @Override
+            public Iterator<Passenger> iterator() {
+                Passenger[] passengers = new Passenger[passengerList.size()];
+                passengerList.toArray(passengers);
+                Arrays.sort(passengers);
+                return Arrays.asList(passengers).iterator();
+            }
+        };
+    }
 
     private static int allPassengers;
 
@@ -24,6 +60,10 @@ public class Flight {
 
     public Flight() {
 
+    }
+
+    public void addPassenger(Passenger p) {
+        this.passengerList.add(p);
     }
 
     public  Flight(int flightNumber) {
@@ -67,5 +107,15 @@ public class Flight {
             return false;
         }
 
+    }
+
+    @Override
+    public int compareTo(Flight o) {
+        return 0;
+    }
+
+    @Override
+    public Iterator<Passenger> iterator() {
+        return this.passengerList.iterator();
     }
 }

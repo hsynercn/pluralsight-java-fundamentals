@@ -4,20 +4,29 @@ import java.util.regex.PatternSyntaxException;
 
 final public class Passenger implements Comparable<Passenger>{
     private String name;
-    private int memberLevel; //3 (1st priority), 2, 1
-    private int memberDays;
+
+    public static class RewardProgram {
+        private int memberLevel; //3 (1st priority), 2, 1
+        private int memberDays;
+    }
+
+    private RewardProgram rewardProgram = new RewardProgram();
 
     public Passenger(String name, int memberLevel, int memberDays) {
         this.name = name;
-        this.memberLevel = memberLevel;
-        this.memberDays = memberDays;
+        this.rewardProgram.memberLevel = memberLevel;
+        this.rewardProgram.memberDays = memberDays;
     }
 
     public int compareTo(Passenger p) {
-        int returnValue = p.memberLevel - memberLevel;
+        int returnValue = p.rewardProgram.memberLevel - rewardProgram.memberLevel;
         if (returnValue == 0) {
-            returnValue = p.memberDays - memberDays;
+            returnValue = p.rewardProgram.memberDays - rewardProgram.memberDays;
         }
         return returnValue;
+    }
+
+    public String getName() {
+        return name;
     }
 }
