@@ -1,4 +1,4 @@
-package com.bergaz.collections;
+package com.bergaz.collections.production;
 
 import java.util.Comparator;
 import java.util.Objects;

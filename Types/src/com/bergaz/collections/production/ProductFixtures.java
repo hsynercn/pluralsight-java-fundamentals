@@ -1,4 +1,4 @@
-package com.bergaz.collections;
+package com.bergaz.collections.production;
 
 public class ProductFixtures {
     public static Product door = new Product("Wooden Door", 35);
