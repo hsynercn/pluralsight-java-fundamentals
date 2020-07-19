@@ -1,4 +1,4 @@
-package com.bergaz.collections;
+package com.bergaz.collections.production;
 
 import java.util.Comparator;
 import java.util.Objects;
@@ -6,6 +6,7 @@ import java.util.Objects;
 public class Product {
     private final String name;
     private final int weight;
+    private final int id;
 
     public static final Comparator<Product> BY_WEIGHT
             = new Comparator<Product>()
@@ -16,10 +17,15 @@ public class Product {
         }
     };
 
-    public Product(String name, int weight)
+    public Product(String name, int weight, int id)
     {
         this.name = name;
         this.weight = weight;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName()

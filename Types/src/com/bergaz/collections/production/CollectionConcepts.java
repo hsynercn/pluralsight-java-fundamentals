@@ -1,4 +1,4 @@
-package com.bergaz.collections;
+package com.bergaz.collections.production;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,9 +6,9 @@ import java.util.Iterator;
 
 public class CollectionConcepts {
     public static void main(String[] args) {
-        Product door = new Product("Wooden Door", 35);
-        Product floorPanel = new Product("Floor Panel", 25);
-        Product window = new Product("Glass Window", 10);
+        Product door = new Product("Wooden Door", 35, 1);
+        Product floorPanel = new Product("Floor Panel", 25, 2);
+        Product window = new Product("Glass Window", 10, 3);
 
         Collection<Product> products;
         products = new ArrayList<>();
