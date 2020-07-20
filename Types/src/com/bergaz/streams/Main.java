@@ -5,9 +5,9 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
 
-        doTryCatchFinally();
-        doTryWithResources();
-
+        //doTryCatchFinally();
+        //doTryWithResources();
+        doCloseThing();
     }
 
     public static void readExamples() {
@@ -82,6 +82,14 @@ public class Main {
             }
 
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void doCloseThing() {
+        try(MyAutoCloseable ac = new MyAutoCloseable()) {
+            ac.saySomething();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
