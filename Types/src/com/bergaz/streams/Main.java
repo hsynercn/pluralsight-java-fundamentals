@@ -5,8 +5,9 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
 
-        doTryCatchFinally();
-
+        //doTryCatchFinally();
+        //doTryWithResources();
+        doCloseThing();
     }
 
     public static void readExamples() {
@@ -67,6 +68,29 @@ public class Main {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    public static void doTryWithResources() {
+        char[] buff = new char[8];
+        int length;
+        try (Reader reader = Helper.openReader("C:\\Pluralsight\\pluralsight-java-fundamentals\\Types\\files\\file.txt");
+             Writer writer = Helper.openWriter("C:\\Pluralsight\\pluralsight-java-fundamentals\\Types\\files\\file-copy.txt")) {
+            while ((length = reader.read(buff)) >= 0) {
+                System.out.println("\nlength:" + length);
+                writer.write(buff, 0, length);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void doCloseThing() {
+        try(MyAutoCloseable ac = new MyAutoCloseable()) {
+            ac.saySomething();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
