@@ -1,12 +1,12 @@
 package com.bergaz.streams;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.charset.Charset;
+import java.nio.file.*;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,8 +20,10 @@ public class ZipFileSystem {
                 "Line 5 5 5 5 5",
         };
 
-        try(FileSystem zipFs = openZip(Paths.get("C:/Pluralsight/pluralsight-java-fundamentals/Types/files/myData.txt"));) {
-
+        try(FileSystem zipFs = openZip(Paths.get("C:/Pluralsight/pluralsight-java-fundamentals/Types/files/myData.zip"));) {
+            copyZip(zipFs, "C:/Pluralsight/pluralsight-java-fundamentals/Types/files/file.txt");
+            writeToFleInZip1(zipFs, data);
+            writeToFleInZip2(zipFs, data);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (URISyntaxException e) {
@@ -39,7 +41,26 @@ public class ZipFileSystem {
         return zipFs;
     }
 
-    private static FileSystem copyZip(FileSystem zipFs) throws IOException {
+    private static FileSystem copyZip(FileSystem zipFs, String sourceFilePathStr) throws IOException {
+        //Path sourceFile = Paths.get(sourceFilePathStr);
+        Path sourceFile = FileSystems.getDefault().getPath(sourceFilePathStr);
+        Path destFile = zipFs.getPath("/copiedFile.txt");
+
+        Files.copy(sourceFile, destFile, StandardCopyOption.REPLACE_EXISTING);
         return null;
+    }
+
+    private static void writeToFleInZip1(FileSystem zipFs, String[] data) throws IOException {
+        try(BufferedWriter writer = Files.newBufferedWriter(zipFs.getPath("/newFile1.txt"));) {
+            for(String line : data) {
+                writer.write(line);
+                writer.newLine();
+            }
+        }
+    }
+
+    private static void writeToFleInZip2(FileSystem zipFs, String[] data) throws IOException {
+        Files.write(zipFs.getPath("/newFile2.txt"), Arrays.asList(data),
+                Charset.defaultCharset(), StandardOpenOption.CREATE_NEW);
     }
 }
