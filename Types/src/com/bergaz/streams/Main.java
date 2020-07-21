@@ -1,13 +1,21 @@
 package com.bergaz.streams;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
         //doTryCatchFinally();
         //doTryWithResources();
-        doCloseThing();
+        //doCloseThing();
+        try {
+            readData("C:/Pluralsight/pluralsight-java-fundamentals/Types/files/file.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void readExamples() {
@@ -91,6 +99,32 @@ public class Main {
             ac.saySomething();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void doChain(InputStream in) throws IOException {
+        int length;
+        char[] charBuff = new char[128];
+        try(InputStreamReader rdr = new InputStreamReader(in);) {
+            while ((length = rdr.read(charBuff)) >= 0) {
+                System.out.println(charBuff);
+            }
+        }
+    }
+
+    private static void readData(String path) throws IOException {
+        try(BufferedReader br = Files.newBufferedReader(Paths.get(path))) {
+            String inValue;
+            while((inValue = br.readLine()) != null) {
+                System.out.println(inValue);
+            }
+        }
+    }
+
+    private static void readThemAll(String path) throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get(path));
+        for(String line : lines) {
+            System.out.println(line);
         }
     }
 }
