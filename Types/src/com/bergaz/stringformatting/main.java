@@ -56,5 +56,10 @@ public class main {
 
         String ffs18 = String.format("%(d", 123);
         String ffs19 = String.format("%(d", -456);
+
+        String ffs20 = String.format("%d %d %d", 10, 20, 30);
+        String ffs21 = String.format("%3$d %2$d %1$d", 10, 20, 30);
+        String ffs22 = String.format("%2$d %<04d %1$d", 10, 20, 30);
+
     }
 }
