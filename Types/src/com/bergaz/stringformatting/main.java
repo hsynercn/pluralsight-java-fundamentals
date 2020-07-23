@@ -61,5 +61,14 @@ public class main {
         String ffs21 = String.format("%3$d %2$d %1$d", 10, 20, 30);
         String ffs22 = String.format("%2$d %<04d %1$d", 10, 20, 30);
 
+        String ffs23 = "apple, apple and orange please";
+
+        String[] parts = ffs23.split("\\b");
+
+        for(String part : parts) {
+            if(part.matches("\\w+")){
+                System.out.println(part);
+            }
+        }
     }
 }
