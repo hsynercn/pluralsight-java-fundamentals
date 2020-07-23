@@ -10,7 +10,9 @@ public class CmdArguments {
         if(args.length == 0) {
             System.out.println("No arguments");
         } else if(args.length == 1){
-            readFile(args[0]);
+            if(Files.exists(Paths.get(args[0]))) {
+                readFile(args[0]);
+            }
         }
     }
 
