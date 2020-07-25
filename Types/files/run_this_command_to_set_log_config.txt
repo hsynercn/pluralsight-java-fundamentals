@@ -1,0 +1,1 @@
+java -Djava.util.logging.config.file=log.properties com.bergaz.logging.LogConfigurationFile
