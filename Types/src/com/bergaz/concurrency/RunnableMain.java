@@ -4,7 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class Main {
+public class RunnableMain {
     public static void main(String[] args) {
         String[] inFiles = {"C:\\Pluralsight\\pluralsight-java-fundamentals\\Types\\files\\in_file1.txt",
                 "C:\\Pluralsight\\pluralsight-java-fundamentals\\Types\\files\\in_file2.txt",
@@ -25,16 +25,16 @@ public class Main {
 
     private static void runSingleThread(String[] inFiles, String[] outFiles) {
         for(int i = 0; i < inFiles.length; i++){
-            Adder adder = new Adder(inFiles[i], outFiles[i]);
-            adder.doAdd();
+            RunnableAdder runnableAdder = new RunnableAdder(inFiles[i], outFiles[i]);
+            runnableAdder.doAdd();
         }
     }
 
     private static void runMultiThread(String[] inFiles, String[] outFiles) {
         Thread[] threads = new Thread[inFiles.length];
         for(int i = 0; i < inFiles.length; i++){
-            Adder adder = new Adder(inFiles[i], outFiles[i]);
-            Thread thread = new Thread(adder);
+            RunnableAdder runnableAdder = new RunnableAdder(inFiles[i], outFiles[i]);
+            Thread thread = new Thread(runnableAdder);
             thread.start();
         }
 
@@ -50,8 +50,8 @@ public class Main {
     private static void threadPool(String[] inFiles, String[] outFiles) {
         ExecutorService es = Executors.newFixedThreadPool(3);
         for (int i = 0; i < inFiles.length; i++) {
-            Adder adder = new Adder(inFiles[i], outFiles[i]);
-            es.submit(adder);
+            RunnableAdder runnableAdder = new RunnableAdder(inFiles[i], outFiles[i]);
+            es.submit(runnableAdder);
         }
         try{
             es.shutdown();

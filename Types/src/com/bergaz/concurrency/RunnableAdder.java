@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Adder implements Runnable{
+public class RunnableAdder implements Runnable{
     private String inFile, outFile;
 
-    public Adder(String inFile, String outFile) {
+    public RunnableAdder(String inFile, String outFile) {
         this.inFile = inFile;
         this.outFile = outFile;
     }
