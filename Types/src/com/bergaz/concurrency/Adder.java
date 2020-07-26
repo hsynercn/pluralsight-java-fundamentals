@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Adder {
+public class Adder implements Runnable{
     private String inFile, outFile;
 
     public Adder(String inFile, String outFile) {
@@ -29,5 +29,10 @@ public class Adder {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void run() {
+        doAdd();
     }
 }
