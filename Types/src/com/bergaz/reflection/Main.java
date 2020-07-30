@@ -1,9 +1,6 @@
 package com.bergaz.reflection;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -150,6 +147,32 @@ public class Main {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void startWork(String workerTypeName, Object workerTarget) {
+        try {
+            Class<?> workerType = Class.forName(workerTypeName);
+            Class<?> targetType = workerTarget.getClass();
+            Constructor c = workerType.getConstructor(targetType);
+            Object worker = c.newInstance(workerTarget);
+            Method doWork = workerType.getMethod("doWork");
+            doWork.invoke(worker);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void startWorkSimple(String workerTypeName, Object workerTarget) {
+        try {
+            Class<?> workerType = Class.forName(workerTypeName);
+            TaskWorker worker = (TaskWorker) workerType.newInstance();
+            worker.setTarget(workerTarget);
+            worker.doWork();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
