@@ -1,6 +1,7 @@
 package com.bergaz.reflection;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 public class Main {
@@ -11,6 +12,8 @@ public class Main {
         //classInfo(account1);
         //typeModifiers(account1);
         fieldInfo(account);
+        methodInfo(account1);
+        methodInfoInDetail(account1);
     }
 
     public static void showName(Class<?> theClass) {
@@ -82,5 +85,41 @@ public class Main {
     public static void displayFields(Field[] arr) {
         for(Field f:arr)
             System.out.println(f.getName() + " : " + f.getType());
+    }
+
+    public static void methodInfo(Object obj) {
+        Class<?> theClass = obj.getClass();
+
+        Method[] methods = theClass.getMethods();
+
+        System.out.println("ALL PUBLIC METHODS:");
+        for(Method m:methods) {
+            System.out.println("name: " + m.getName() + " " + m.getModifiers() + " return: " + m.getReturnType().getSimpleName());
+        }
+
+        System.out.println("ALL DECLARED METHODS IN CLASS ITSELF:");
+        Method[] declaredMethods = theClass.getDeclaredMethods();
+         for(Method m:declaredMethods) {
+             System.out.println("name: " + m.getName() + " " + m.getModifiers() + " return: " + m.getReturnType().getSimpleName());
+         }
+    }
+
+    public static void methodInfoInDetail(Object obj) {
+        Class<?> theClass = obj.getClass();
+
+        Method[] methods = theClass.getMethods();
+
+        System.out.println("PUBLIC METHODS DECLARED IN PARENTS:");
+        for(Method m:methods) {
+            if(m.getDeclaringClass() != obj.getClass())
+                System.out.println("name: " + m.getName() + " " + m.getModifiers() + " return: " + m.getReturnType().getSimpleName());
+        }
+
+        System.out.println("PUBLIC METHODS DECLARED IN CLASS ITSELF:");
+        for(Method m:methods) {
+            if(m.getDeclaringClass() == obj.getClass())
+                System.out.println("name: " + m.getName() + " " + m.getModifiers() + " return: " + m.getReturnType().getSimpleName());
+        }
+
     }
 }
