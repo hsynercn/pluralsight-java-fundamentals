@@ -1,5 +1,8 @@
 package com.bergaz.reflection;
 
+import com.bergaz.annotations.WorkHandler;
+
+@WorkHandler(useThreadPool = false)
 public class AccountWorker implements Runnable{
     BankAccount ba;
     HighVolumeAccount hva;

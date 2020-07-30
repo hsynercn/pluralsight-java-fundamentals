@@ -1,6 +1,11 @@
 package com.bergaz.reflection;
 
+import com.bergaz.annotations.WorkHandler;
+
 import java.lang.reflect.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) {
@@ -172,6 +177,28 @@ public class Main {
             TaskWorker worker = (TaskWorker) workerType.newInstance();
             worker.setTarget(workerTarget);
             worker.doWork();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void startWorkWithAnnotation(String workerTypeName, Object workerTarget) {
+        try {
+            Class<?> workerType = Class.forName(workerTypeName);
+            TaskWorker worker = (TaskWorker) workerType.newInstance();
+            worker.setTarget(workerTarget);
+            WorkHandler wh = workerType.getAnnotation(WorkHandler.class);
+            if(wh.useThreadPool()) {
+                ExecutorService pool = Executors.newFixedThreadPool(5);
+                pool.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        worker.doWork();
+                    }
+                });
+            } else {
+                worker.doWork();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
