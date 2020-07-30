@@ -8,7 +8,7 @@ public class RunWorkerOnSingleThread {
         ExecutorService es = Executors.newFixedThreadPool(5);
         BankAccount account = new BankAccount(100);
 
-        RunnableWorker worker = new RunnableWorker(account);
+        RunnableWorker worker = new RunnableWorkerNotSync(account);
         es.submit(worker);
     }
 }
