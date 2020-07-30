@@ -15,6 +15,10 @@ public class BankAccount {
         this.balance += amount;
     }
 
+    public synchronized void withdrawal(int amount) {
+        this.balance -= amount;
+    }
+
     public void depositNotSync(int amount) {
         this.balance += amount;
     }
