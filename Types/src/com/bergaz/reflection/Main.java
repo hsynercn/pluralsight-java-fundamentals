@@ -1,6 +1,7 @@
 package com.bergaz.reflection;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
@@ -14,6 +15,7 @@ public class Main {
         fieldInfo(account);
         methodInfo(account1);
         methodInfoInDetail(account1);
+        callGetId(account1);
     }
 
     public static void showName(Class<?> theClass) {
@@ -121,5 +123,34 @@ public class Main {
                 System.out.println("name: " + m.getName() + " " + m.getModifiers() + " return: " + m.getReturnType().getSimpleName());
         }
 
+    }
+
+    public static void callGetId(Object obj) {
+        Class<?> theClass = obj.getClass();
+        try {
+            Method m = theClass.getMethod("getId");
+            Object result = m.invoke(obj);
+            System.out.println("Result: " + result);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void callDeposit(Object obj, int amt) {
+        Class<?> theClass = obj.getClass();
+        try {
+            Method m = theClass.getMethod("deposit", int.class);
+            m.invoke(obj, amt);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 }
