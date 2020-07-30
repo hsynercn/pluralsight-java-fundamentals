@@ -1,14 +1,16 @@
 package com.bergaz.reflection;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 public class Main {
     public static void main(String[] args) {
         BankAccount account = new BankAccount("1", 100);
-        doWork(account);
+        //doWork(account);
         BankAccount account1 = new HighVolumeAccount("1", 300);
-        classInfo(account1);
-        typeModifiers(account1);
+        //classInfo(account1);
+        //typeModifiers(account1);
+        fieldInfo(account);
     }
 
     public static void showName(Class<?> theClass) {
@@ -67,5 +69,18 @@ public class Main {
         if(Modifier.isVolatile(modifiers)) {
             System.out.println("VOLATILE");
         }
+    }
+
+    public static void fieldInfo(Object obj) {
+        Class<?> theClass = obj.getClass();
+        Field[] fields = theClass.getFields();
+        displayFields(fields);
+        Field[] declaredFields = theClass.getDeclaredFields();
+        displayFields(declaredFields);
+    }
+
+    public static void displayFields(Field[] arr) {
+        for(Field f:arr)
+            System.out.println(f.getName() + " : " + f.getType());
     }
 }
