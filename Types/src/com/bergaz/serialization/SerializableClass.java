@@ -1,5 +1,8 @@
 package com.bergaz.serialization;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 //can change from File -> Settings -> Editor -> Inspections -> Java -> Serialization issues:disable/enable severity:error
@@ -37,5 +40,18 @@ public class SerializableClass implements Serializable {
         this.balance -= amount;
         lastTxType = 'w';
         lastTxAmount = amount;
+    }
+
+
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+    }
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        ObjectInputStream.GetField fields = in.readFields();
+        String id = (String) fields.get("id", null);
+        balance = fields.get("balance", 0);
+        lastTxAmount = fields.get("lastTxType", 'u');
+        lastTxAmount = fields.get("lastTxAmount", -1);
+        in.defaultReadObject();
     }
 }
