@@ -1,6 +1,9 @@
 package com.bergaz.fundamentals.reflection;
 
-public class Main {
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class IntroMain {
     public static void main(String[] args) {
         //First way to get reference on a class object
         String hello = "Hello";
@@ -36,5 +39,30 @@ public class Main {
             e.printStackTrace();
         }
 
+        Class<?> aClass = "Hello".getClass();
+
+        Class<?> superClass = aClass.getSuperclass();
+        Class<?>[] interfaces = aClass.getInterfaces();
+
+
+        Class<?> clssTmp = Person.class;
+
+        try {
+            Field field = clssTmp.getField("age");
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        Field[] fields = clssTmp.getFields();
+        Field[] declaredFields = clssTmp.getDeclaredFields();
+
+        try {
+            Method method = clssTmp.getMethod("setName", String.class);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+        Method[] declaredMethods = clssTmp.getDeclaredMethods();
+        Method[] methods = clssTmp.getMethods();
     }
 }
