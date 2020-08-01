@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.reflection;
+package com.bergaz.fundamentals.reflection.intro;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class IntroMain {
     public static void main(String[] args) {
 
-        String classString = "com.bergaz.fundamentals.reflection.Person";
+        String classString = "com.bergaz.fundamentals.reflection.intro.Person";
 
         try {
             printClassInfo(classString);

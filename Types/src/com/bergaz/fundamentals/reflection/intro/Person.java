@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.reflection;
+package com.bergaz.fundamentals.reflection.intro;
 
 public class Person {
     private int age;
