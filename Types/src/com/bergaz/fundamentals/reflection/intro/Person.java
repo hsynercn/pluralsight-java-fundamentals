@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.reflection;
+package com.bergaz.fundamentals.reflection.intro;
 
 public class Person {
     private int age;
@@ -7,6 +7,17 @@ public class Person {
     public Person(int age, String name) {
         this.age = age;
         this.name = name;
+    }
+
+    public Person() {
+    }
+
+    private void hiddenMethod() {
+        System.out.println("Print hidden thing.");
+    }
+
+    public static Person of(int age, String name) {
+        return new Person(age, name);
     }
 
     public int getAge() {
@@ -23,5 +34,10 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "{ age: " + age + " name: " + name + " }";
     }
 }
