@@ -9,6 +9,17 @@ public class Person {
         this.name = name;
     }
 
+    public Person() {
+    }
+
+    private void hiddenMethod() {
+        System.out.println("Print hidden thing.");
+    }
+
+    public static Person of(int age, String name) {
+        return new Person(age, name);
+    }
+
     public int getAge() {
         return age;
     }
@@ -23,5 +34,10 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "{ age: " + age + " name: " + name + " }";
     }
 }

@@ -1,10 +1,56 @@
 package com.bergaz.fundamentals.reflection;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.Arrays;
 
 public class IntroMain {
     public static void main(String[] args) {
+
+        String classString = "com.bergaz.fundamentals.reflection.Person";
+
+        try {
+            printClassInfo(classString);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void printClassInfo(String className) throws ClassNotFoundException {
+        Class<?> tmpClass = Class.forName(className);
+        System.out.println("PRINT CLASS INFORMATION:");
+        System.out.println("Class: " + tmpClass);
+
+        Field[] fields = tmpClass.getFields();
+        System.out.println("Fields:");
+        System.out.println(Arrays.toString(fields));
+
+        Field[] declaredFields = tmpClass.getDeclaredFields();
+        System.out.println("Declared Fields:");
+        System.out.println(Arrays.toString(declaredFields));
+
+        Method[] methods = tmpClass.getMethods();
+        System.out.println("Methods:");
+        for (Method method : methods) {
+            System.out.println(method);
+        }
+
+        Method[] declaredMethods = tmpClass.getDeclaredMethods();
+        System.out.println("Declared Methods:");
+        for (Method method : declaredMethods) {
+            System.out.println(method);
+        }
+
+        System.out.println("Static Declared Methods:");
+        Arrays.stream(declaredMethods)
+                .filter(m -> Modifier.isStatic(m.getModifiers()))
+                .forEach(System.out::println);
+
+    }
+
+    private static void playWithReflection() {
         //First way to get reference on a class object
         String hello = "Hello";
         Class helloClass = hello.getClass();
@@ -12,7 +58,7 @@ public class IntroMain {
         String world = "World";
         Class worldClass = world.getClass();
 
-        if(helloClass == worldClass) {
+        if (helloClass == worldClass) {
             System.out.println("hello and world classes are equal");
         }
 
@@ -20,7 +66,7 @@ public class IntroMain {
         Class xClass = x.getClass();
         Class yClass = y.getClass();
 
-        if(xClass == yClass) {
+        if (xClass == yClass) {
             System.out.println("x and y classes are equal");
         }
 
@@ -64,5 +110,25 @@ public class IntroMain {
 
         Method[] declaredMethods = clssTmp.getDeclaredMethods();
         Method[] methods = clssTmp.getMethods();
+
+        try {
+            Constructor constructor = clssTmp.getConstructor(Integer.class, String.class);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+        Constructor[] declaredConstructors = clssTmp.getDeclaredConstructors();
+
+        //IMPORTANT: Super class constructors are not included, different from getFields and getMethods
+        Constructor[] constructors = clssTmp.getConstructors();
+
+        try {
+            Field field = clssTmp.getField("name");
+            int modifiers = field.getModifiers();
+            boolean isPublic = (modifiers & 0x00000001) > 0;
+            isPublic = Modifier.isPublic(modifiers);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
     }
 }
