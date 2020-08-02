@@ -15,4 +15,8 @@ public class ColumnField {
     public String getName() {
         return field.getName();
     }
+
+    public Field getField() {
+        return field;
+    }
 }
