@@ -17,17 +17,19 @@ public abstract class AbstractEntityManager<T> implements EntityManager<T> {
     public void persist(T t) throws SQLException, IllegalAccessException {
         Metamodel metamodel = Metamodel.of(t.getClass());
         String sql = metamodel.buildInsertRequest();
-        PreparedStatement statement = prepareStatementWith(sql).andParameters(t);
-        statement.executeUpdate();
+        try (PreparedStatement statement = prepareStatementWith(sql).andParameters(t);) {
+            statement.executeUpdate();
+        }
     }
 
     @Override
     public T find(Class<T> clss, Object primaryKey) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         Metamodel metamodel = Metamodel.of(clss);
         String sql = metamodel.buildSelectRequest();
-        PreparedStatement statement = prepareStatementWith(sql).andPrimaryKey(primaryKey);
-        ResultSet resultSet = statement.executeQuery();
-        return buildInstanceFrom(clss, resultSet);
+        try (PreparedStatement statement = prepareStatementWith(sql).andPrimaryKey(primaryKey);
+             ResultSet resultSet = statement.executeQuery();) {
+            return buildInstanceFrom(clss, resultSet);
+        }
     }
 
     private T buildInstanceFrom(Class<T> clss, ResultSet resultSet) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, SQLException {
@@ -37,20 +39,20 @@ public abstract class AbstractEntityManager<T> implements EntityManager<T> {
         String primaryKeyColumnName = metamodel.getPrimaryKey().getName();
         Class<?> primaryKeyType = primaryKeyField.getType();
         resultSet.next();
-        if(primaryKeyType == long.class) {
+        if (primaryKeyType == long.class) {
             long primaryKey = resultSet.getInt(primaryKeyColumnName);
             primaryKeyField.setAccessible(true);
             primaryKeyField.set(t, primaryKey);
         }
-        for(ColumnField columnField : metamodel.getColumns()) {
+        for (ColumnField columnField : metamodel.getColumns()) {
             Field field = columnField.getField();
             field.setAccessible(true);
             Class<?> columnType = columnField.getType();
             String columnName = columnField.getName();
-            if(columnType == int.class) {
+            if (columnType == int.class) {
                 int value = resultSet.getInt(columnName);
                 field.set(t, value);
-            } else if(columnType == String.class) {
+            } else if (columnType == String.class) {
                 String value = resultSet.getString(columnName);
                 field.set(t, value);
             }
@@ -91,7 +93,7 @@ public abstract class AbstractEntityManager<T> implements EntityManager<T> {
                 field.setAccessible(true);
                 Object value = field.get(t);
                 if (fieldType == int.class) {
-                    statement.setInt(columnIndex + 2, (int)value);
+                    statement.setInt(columnIndex + 2, (int) value);
                 } else if (fieldType == String.class) {
                     statement.setString(columnIndex + 2, (String) value);
                 }
@@ -100,8 +102,8 @@ public abstract class AbstractEntityManager<T> implements EntityManager<T> {
         }
 
         public PreparedStatement andPrimaryKey(Object primaryKey) throws SQLException {
-            if(primaryKey.getClass() == Long.class) {
-                statement.setLong(1, (long)primaryKey);
+            if (primaryKey.getClass() == Long.class) {
+                statement.setLong(1, (long) primaryKey);
             }
             return statement;
         }

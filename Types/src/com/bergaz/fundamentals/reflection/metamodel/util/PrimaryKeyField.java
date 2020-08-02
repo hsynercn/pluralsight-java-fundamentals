@@ -1,11 +1,15 @@
 package com.bergaz.fundamentals.reflection.metamodel.util;
 
+import com.bergaz.fundamentals.reflection.metamodel.annotation.PrimaryKey;
+
 import java.lang.reflect.Field;
 
 public class PrimaryKeyField {
     private Field field;
+    private PrimaryKey primaryKey;
     public PrimaryKeyField(Field field) {
         this.field = field;
+        this.primaryKey = field.getAnnotation(PrimaryKey.class);
     }
 
     public Class<?> getType() {
@@ -13,7 +17,7 @@ public class PrimaryKeyField {
     }
 
     public String getName() {
-        return field.getName();
+        return primaryKey.name();
     }
 
     public Field getField() {
