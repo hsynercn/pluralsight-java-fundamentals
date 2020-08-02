@@ -15,13 +15,13 @@ public class Person {
     public Person() {
     }
 
-    public Person(int age, String name) {
+    public Person(String name, int age) {
         this.age = age;
         this.name = name;
     }
 
-    public static Person of(int age, String name) {
-        return new Person(age, name);
+    public static Person of(String name, int age) {
+        return new Person(name, age);
     }
 
     public long getId() {
