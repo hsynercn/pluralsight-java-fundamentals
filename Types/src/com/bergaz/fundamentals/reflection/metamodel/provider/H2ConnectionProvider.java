@@ -1,11 +1,13 @@
-package com.bergaz.fundamentals.reflection.metamodel.orm;
+package com.bergaz.fundamentals.reflection.metamodel.provider;
+
+import com.bergaz.fundamentals.reflection.metamodel.annotation.Provides;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/*
-public class H2EntityManager<T> extends ManagedEntityManager<T> {
+public class H2ConnectionProvider {
+    @Provides
     public Connection buildConnection() throws SQLException {
         Connection connection =
                 DriverManager.getConnection(
@@ -14,4 +16,3 @@ public class H2EntityManager<T> extends ManagedEntityManager<T> {
         return connection;
     }
 }
-*/

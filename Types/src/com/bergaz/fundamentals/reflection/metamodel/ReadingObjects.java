@@ -1,14 +1,17 @@
 package com.bergaz.fundamentals.reflection.metamodel;
 
+import com.bergaz.fundamentals.reflection.metamodel.beanmanager.BeanManager;
 import com.bergaz.fundamentals.reflection.metamodel.model.Person;
 import com.bergaz.fundamentals.reflection.metamodel.orm.EntityManager;
+import com.bergaz.fundamentals.reflection.metamodel.orm.ManagedEntityManager;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
 public class ReadingObjects {
     public static void main(String[] args) throws SQLException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-        EntityManager<Person> entityManager = EntityManager.of(Person.class);
+        BeanManager beanManager = BeanManager.getInstance();
+        EntityManager<Person> entityManager = beanManager.getInstance(ManagedEntityManager.class);
 
         Person linda = entityManager.find(Person.class, 1L);
         Person james = entityManager.find(Person.class, 2L);

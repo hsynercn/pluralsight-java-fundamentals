@@ -1,5 +1,6 @@
 package com.bergaz.fundamentals.reflection.metamodel.orm;
 
+import com.bergaz.fundamentals.reflection.metamodel.annotation.Inject;
 import com.bergaz.fundamentals.reflection.metamodel.util.ColumnField;
 import com.bergaz.fundamentals.reflection.metamodel.util.Metamodel;
 
@@ -9,9 +10,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.concurrent.atomic.AtomicLong;
 
-public abstract class AbstractEntityManager<T> implements EntityManager<T> {
+public class ManagedEntityManager<T> implements EntityManager<T> {
 
     private AtomicLong idGenerator = new AtomicLong(0L);
+
+    @Inject
+    private Connection connection;
 
     @Override
     public void persist(T t) throws SQLException, IllegalAccessException {
@@ -61,11 +65,9 @@ public abstract class AbstractEntityManager<T> implements EntityManager<T> {
     }
 
     private PrepareStatementWrapper prepareStatementWith(String sql) throws SQLException {
-        PreparedStatement statement = buildConnection(sql);
+        PreparedStatement statement = connection.prepareStatement(sql);
         return new PrepareStatementWrapper(statement);
     }
-
-    public abstract PreparedStatement buildConnection(String sql) throws SQLException;
 
     private class PrepareStatementWrapper {
 
