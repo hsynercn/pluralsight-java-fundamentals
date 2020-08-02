@@ -5,22 +5,17 @@ import com.bergaz.fundamentals.reflection.metamodel.model.Person;
 import com.bergaz.fundamentals.reflection.metamodel.orm.EntityManager;
 import com.bergaz.fundamentals.reflection.metamodel.orm.ManagedEntityManager;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
-public class WritingObjects {
-    public static void main(String[] args) throws SQLException, IllegalAccessException {
-
+public class ReadingObjects {
+    public static void main(String[] args) throws SQLException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         BeanManager beanManager = BeanManager.getInstance();
         EntityManager<Person> entityManager = beanManager.getInstance(ManagedEntityManager.class);
 
-        Person linda = new Person("Linda", 31);
-        Person james = new Person("James", 24);
-        Person susan = new Person("Susan", 34);
-        Person john = new Person("John", 34);
-
-        entityManager.persist(linda);
-        entityManager.persist(james);
-        entityManager.persist(susan);
-        entityManager.persist(john);
+        Person linda = entityManager.find(Person.class, 1L);
+        Person james = entityManager.find(Person.class, 2L);
+        Person susan = entityManager.find(Person.class, 3L);
+        Person john = entityManager.find(Person.class, 4L);
     }
 }

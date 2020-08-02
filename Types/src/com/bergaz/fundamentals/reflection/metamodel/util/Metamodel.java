@@ -55,6 +55,12 @@ public class Metamodel {
                 "(" + columnElement + ") values (" + questionMarksElement + ")";
     }
 
+    public String buildSelectRequest() {
+        String columnElement = buildColumnName();
+        return "select " + columnElement + " from " + this.clss.getSimpleName() +
+                " where " + getPrimaryKey().getName() + "= ?";
+    }
+
     private String buildQuestionMarksElement() {
         int numberOfColumns = getColumns().size() + 1;
         return IntStream.range(0, numberOfColumns).
