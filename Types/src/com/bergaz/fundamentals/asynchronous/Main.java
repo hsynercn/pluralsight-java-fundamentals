@@ -28,5 +28,20 @@ public class Main {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+        Runnable runnable = () -> {};
+        Runnable loggingAMessage = () -> System.out.println("This is a log");
+
+        //main thread execution
+        runnable.run();
+
+        //don't use this method, it is obsolete
+        //Thread thread = new Thread();
+        //thread.run(runnable);
+
+        //use this method
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.submit(runnable);
+
     }
 }
