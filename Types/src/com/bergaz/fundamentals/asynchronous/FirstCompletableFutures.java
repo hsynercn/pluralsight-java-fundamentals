@@ -15,7 +15,7 @@ public class FirstCompletableFutures {
 
     private static void runRunnableWithExecutor() throws InterruptedException {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        Runnable task = () -> System.out.println("I am running asynchronously Thread: " + Thread.currentThread().getName() );
+        Runnable task = () -> System.out.println("I am running asynchronously Thread: " + Thread.currentThread().getName());
         //This thread si from pool-1-thread-1
         CompletableFuture.runAsync(task, executor);
         /**
