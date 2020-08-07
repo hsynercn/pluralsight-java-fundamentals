@@ -6,7 +6,7 @@ import java.util.concurrent.CompletableFuture;
 public class MyChainExample {
     public static void main(String[] args) {
         CompletableFuture cf = CompletableFuture.supplyAsync(() -> List.of(1L, 2L, 3L))
-                .thenApply(list ->{
+                .thenApply(list -> {
                     System.out.println(list);
                     return list;
                 });

@@ -8,7 +8,7 @@ public class Main {
         ExecutorService service =
                 Executors.newSingleThreadExecutor();
         Runnable task = () -> {
-            for(int i = 0; i < 10; i++) {
+            for (int i = 0; i < 10; i++) {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -27,7 +27,8 @@ public class Main {
             e.printStackTrace();
         }
 
-        Runnable runnable = () -> {};
+        Runnable runnable = () -> {
+        };
         Runnable loggingAMessage = () -> System.out.println("This is a log");
 
         //main thread execution
