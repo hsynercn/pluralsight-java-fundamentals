@@ -14,4 +14,8 @@ public class MockUser {
     public void setId(long id) {
         this.id = id;
     }
+
+    public void printInfo() {
+        System.out.println("User:" + id);
+    }
 }
