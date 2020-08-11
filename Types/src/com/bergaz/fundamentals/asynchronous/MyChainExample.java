@@ -16,9 +16,9 @@ public class MyChainExample {
         cf.thenAccept(myVal -> System.out.println(myVal));
 
         /**
-         * RUNNABLE method: void run(), cf method:thenRun()
-         * CONSUMER method: void accept(Long), cf method: thenAccept(); can take an object
-         * FUNCTION method: User apply(Long), cf thenApply(); can take object and can return object
+         * RUNNABLE method: void (then)run(), cf method:thenRun()
+         * CONSUMER method: void (then)accept(Long), cf method: thenAccept(); can take an object
+         * FUNCTION method: User (then)apply(Long), cf thenApply(); can take object and can return object
          */
     }
 }
