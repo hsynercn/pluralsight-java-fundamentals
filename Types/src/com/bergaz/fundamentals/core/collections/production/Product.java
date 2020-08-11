@@ -4,6 +4,9 @@ import java.util.Comparator;
 import java.util.Objects;
 
 public class Product {
+    /**
+     * Warburton changed the course
+     */
     private final String name;
     private final int weight;
     private final int id;
