@@ -17,15 +17,21 @@ public class AsyncExample {
     public static void main(String[] args) {
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
+        ExecutorService executor1 = Executors.newSingleThreadExecutor();
 
         Supplier<List<Long>> supplyIDs = () -> {
             mySleep(200);
             return Arrays.asList(1L, 2L, 3L);
         };
 
-        Function<List<Long>, List<User>> fetchUsers = ids -> {
+        Function<List<Long>, CompletableFuture<List<User>>> fetchUsers = ids -> {
             mySleep(300);
-            return ids.stream().map(User::new).collect(Collectors.toList());
+            Supplier<List<User>> userSupplier =
+                    () -> {
+                        System.out.println("Currently running in " + Thread.currentThread().getName());
+                        return ids.stream().map(User::new).collect(Collectors.toList());
+                    };
+            return CompletableFuture.supplyAsync(userSupplier);
         };
 
         Consumer<List<User>> displayer = users -> {
@@ -34,10 +40,12 @@ public class AsyncExample {
         };
 
         CompletableFuture<List<Long>> completableFuture = CompletableFuture.supplyAsync(supplyIDs);
-        completableFuture.thenApply(fetchUsers).thenAcceptAsync(displayer, executor);
+        completableFuture.thenComposeAsync(fetchUsers, executor1).thenAcceptAsync(displayer, executor);
 
-        completableFuture.join();
+        //completableFuture.join();
+        mySleep(1000);
         executor.shutdown();
+        executor1.shutdown();
     }
 
     public static void mySleep(int time) {
