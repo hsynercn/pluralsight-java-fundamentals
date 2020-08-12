@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.asynchronous.demos;
+package com.bergaz.fundamentals.asynchronous.chaintask;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.bergaz.fundamentals.asynchronous.demos.AsyncExample.mySleep;
+import static com.bergaz.fundamentals.asynchronous.chaintask.AsyncExample.mySleep;
 
 public class AsyncExampleMultiBranch {
     public static void main(String[] args) {
@@ -26,6 +26,16 @@ public class AsyncExampleMultiBranch {
             Supplier<List<User>> userSupplier =
                     () -> {
                         System.out.println("Currently running in " + Thread.currentThread().getName());
+                        return ids.stream().map(User::new).collect(Collectors.toList());
+                    };
+            return CompletableFuture.supplyAsync(userSupplier);
+        };
+
+        Function<List<Long>, CompletableFuture<List<User>>> fetchUsersLong = ids -> {
+            mySleep(5250);
+            Supplier<List<User>> userSupplier =
+                    () -> {
+                        System.out.println("Currently running in long " + Thread.currentThread().getName());
                         return ids.stream().map(User::new).collect(Collectors.toList());
                     };
             return CompletableFuture.supplyAsync(userSupplier);
@@ -56,5 +66,15 @@ public class AsyncExampleMultiBranch {
         }));
 
         mySleep(1_000);
+
+        CompletableFuture<List<User>> users1 = completableFuture.thenComposeAsync(fetchUsers);
+        CompletableFuture<List<User>> users2 = completableFuture.thenComposeAsync(fetchUsersLong);
+
+        users1.thenRun(() -> System.out.println("User 1"));
+        users2.thenRun(() -> System.out.println("User 2"));
+
+        users1.acceptEither(users2, displayer);
+
+        mySleep(6_000);
     }
 }

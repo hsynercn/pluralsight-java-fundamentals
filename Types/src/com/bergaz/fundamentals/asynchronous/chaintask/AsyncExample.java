@@ -1,9 +1,8 @@
-package com.bergaz.fundamentals.asynchronous.demos;
+package com.bergaz.fundamentals.asynchronous.chaintask;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;

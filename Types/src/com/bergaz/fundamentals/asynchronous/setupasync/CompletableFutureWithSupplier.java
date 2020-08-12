@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.asynchronous.notes;
+package com.bergaz.fundamentals.asynchronous.setupasync;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
