@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.asynchronous;
+package com.bergaz.fundamentals.asynchronous.notes;
 
 import java.util.ArrayList;
 import java.util.List;
