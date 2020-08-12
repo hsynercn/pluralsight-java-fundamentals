@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.asynchronous;
+package com.bergaz.fundamentals.asynchronous.setupasync;
 
 public class MockUser {
     private long id;

@@ -1,7 +1,6 @@
-package com.bergaz.fundamentals.asynchronous;
+package com.bergaz.fundamentals.asynchronous.setupasync;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
