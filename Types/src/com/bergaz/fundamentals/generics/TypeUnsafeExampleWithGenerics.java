@@ -1,30 +1,26 @@
 package com.bergaz.fundamentals.generics;
 
-import com.bergaz.fundamentals.generics.circularbuffer.StringCircularBuffer;
+import com.bergaz.fundamentals.generics.circularbuffer.CircularBuffer;
+import com.bergaz.fundamentals.generics.circularbuffer.ObjectCircularBuffer;
 
-public class TypeSafeExample {
+public class TypeUnsafeExampleWithGenerics {
     public static void main(String[] args) {
-        StringCircularBuffer buffer = new StringCircularBuffer(10);
+        CircularBuffer<String> buffer = new CircularBuffer(10);
 
         buffer.offer("a");
         buffer.offer("bc");
         buffer.offer("d");
 
-        /**
-         * We have converted the runtime error to compile time error
-         */
-        //buffer.offer(1);
-
         System.out.println("Concatenate result: " + concatenate(buffer));
     }
 
-    private static String concatenate(StringCircularBuffer buffer) {
+    private static String concatenate(CircularBuffer buffer) {
         StringBuilder result = new StringBuilder();
         String value;
         /**
          * Conversion works fine for String type
          */
-        while ((value = buffer.poll()) != null) {
+        while ((value = (String) buffer.poll()) != null) {
             result.append(value);
         }
         return result.toString();

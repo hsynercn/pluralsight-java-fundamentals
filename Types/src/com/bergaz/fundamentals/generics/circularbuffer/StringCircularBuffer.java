@@ -1,12 +1,15 @@
-package com.bergaz.fundamentals.generics;
+package com.bergaz.fundamentals.generics.circularbuffer;
 
-public class CircularBuffer {
-    private Object[] buffer;
+/**
+ * We can chose to implement a strong type circular buffer class. We can't apply the same solution for other types.
+ */
+public class StringCircularBuffer {
+    private String[] buffer;
     private int readCursor = 0;
     private int writeCursor = 0;
 
-    public CircularBuffer(int size) {
-        buffer = new Object[size];
+    public StringCircularBuffer(int size) {
+        buffer = new String[size];
     }
 
     /**
@@ -14,7 +17,7 @@ public class CircularBuffer {
      * @param value
      * @return
      */
-    public boolean offer(Object value) {
+    public boolean offer(String value) {
         if (buffer[writeCursor] != null) {
             return false;
         }
@@ -29,8 +32,8 @@ public class CircularBuffer {
      * Try to read something from the buffer
      * @return
      */
-    public Object poll() {
-        Object value = buffer[readCursor];
+    public String poll() {
+        String  value = buffer[readCursor];
         if (value != null) {
             buffer[readCursor] = null;
             readCursor = next(readCursor);
