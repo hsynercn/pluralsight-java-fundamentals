@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.generics.circularbuffer;
+package com.bergaz.fundamentals.generics.conceptintro.circularbuffer;
 
 /**
  * We can chose to implement a strong type circular buffer class. We can't apply the same solution for other types.

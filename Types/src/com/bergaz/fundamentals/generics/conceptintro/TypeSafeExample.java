@@ -1,6 +1,6 @@
-package com.bergaz.fundamentals.generics;
+package com.bergaz.fundamentals.generics.conceptintro;
 
-import com.bergaz.fundamentals.generics.circularbuffer.StringCircularBuffer;
+import com.bergaz.fundamentals.generics.conceptintro.circularbuffer.StringCircularBuffer;
 
 public class TypeSafeExample {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.generics.circularbuffer;
+package com.bergaz.fundamentals.generics.conceptintro.circularbuffer;
 
 public class ObjectCircularBuffer {
     private Object[] buffer;

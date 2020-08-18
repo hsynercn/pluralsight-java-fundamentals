@@ -1,6 +1,6 @@
-package com.bergaz.fundamentals.generics;
+package com.bergaz.fundamentals.generics.conceptintro;
 
-import com.bergaz.fundamentals.generics.circularbuffer.ObjectCircularBuffer;
+import com.bergaz.fundamentals.generics.conceptintro.circularbuffer.ObjectCircularBuffer;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

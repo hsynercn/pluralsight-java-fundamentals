@@ -1,21 +1,19 @@
-package com.bergaz.fundamentals.generics;
+package com.bergaz.fundamentals.generics.conceptintro;
 
-import com.bergaz.fundamentals.generics.circularbuffer.ObjectCircularBuffer;
+import com.bergaz.fundamentals.generics.conceptintro.circularbuffer.CircularBuffer;
 
-public class TypeUnsafeExample {
+public class TypeUnsafeExampleWithGenerics {
     public static void main(String[] args) {
-        ObjectCircularBuffer buffer = new ObjectCircularBuffer(10);
+        CircularBuffer<String> buffer = new CircularBuffer(10);
 
         buffer.offer("a");
         buffer.offer("bc");
         buffer.offer("d");
 
-        buffer.offer(11);
-
         System.out.println("Concatenate result: " + concatenate(buffer));
     }
 
-    private static String concatenate(ObjectCircularBuffer buffer) {
+    private static String concatenate(CircularBuffer buffer) {
         StringBuilder result = new StringBuilder();
         String value;
         /**

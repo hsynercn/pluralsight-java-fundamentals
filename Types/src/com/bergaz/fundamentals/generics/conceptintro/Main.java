@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.generics;
+package com.bergaz.fundamentals.generics.conceptintro;
 
 import java.util.ArrayList;
 import java.util.List;
