@@ -1,8 +1,6 @@
-package com.bergaz.fundamentals.generics.genericcollections;
+package com.bergaz.fundamentals.generics.collections;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class SetExamples {
@@ -11,8 +9,8 @@ public class SetExamples {
         Person peggyDraper = new Person("Peggy Olson", 65);
         Person bertCooper = new Person("Bert Cooper", 100);
 
-        /**
-         * ArrayList does not insure uniqueness
+        /*
+          ArrayList does not insure uniqueness
          */
 
         /*
@@ -27,8 +25,8 @@ public class SetExamples {
         madMen.add(peggyDraper);
         madMen.add(donDraper);
 
-        /**
-         * We see only one donDraper
+        /*
+          We see only one donDraper
          */
 
         for (Person tempPerson : madMen) {

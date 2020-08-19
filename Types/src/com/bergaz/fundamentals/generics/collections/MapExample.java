@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.generics.genericcollections;
+package com.bergaz.fundamentals.generics.collections;
 
 import java.util.HashMap;
 import java.util.Map;
