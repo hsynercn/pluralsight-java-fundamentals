@@ -1,12 +1,13 @@
-package com.bergaz.fundamentals.generics;
+package com.bergaz.fundamentals.generics.conceptintro;
 
+import com.bergaz.fundamentals.generics.conceptintro.circularbuffer.ObjectCircularBuffer;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CircularBufferTest {
 
-    private CircularBuffer buffer = new CircularBuffer(2);
+    private ObjectCircularBuffer buffer = new ObjectCircularBuffer(2);
 
     @Test
     public void shouldOfferPollableElement() {
