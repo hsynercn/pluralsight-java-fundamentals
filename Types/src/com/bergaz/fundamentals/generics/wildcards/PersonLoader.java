@@ -19,14 +19,20 @@ public class PersonLoader
 
     public Person load() throws ClassNotFoundException
     {
-
-
+        /**
+         * This is the unbounded wildcard example
+         */
         try
         {
             final String className = file.readUTF();
             final String personName = file.readUTF();
             final int age = file.readInt();
 
+            /**
+             * Class can be anything with question mark
+             * Java Object class is completely different case, it is a strong type
+             */
+            //final Class<? extends Object> personClass = Class.forName(className);//Syntactic sugar
             final Class<?> personClass = Class.forName(className);
             final Constructor<?> constructor = personClass.getConstructor(String.class, int.class);
             return (Person) constructor.newInstance(personName, age);
