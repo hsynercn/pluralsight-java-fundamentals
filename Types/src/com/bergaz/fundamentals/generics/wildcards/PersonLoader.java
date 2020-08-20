@@ -42,6 +42,11 @@ public class PersonLoader
         }
     }
 
+    /**
+     * We want to use Person or parent classes of Person class, for Person class we can use Object
+     * @param people
+     * @throws ClassNotFoundException
+     */
     public void loadAll(final List<? super Person> people) throws ClassNotFoundException
     {
         Person person;

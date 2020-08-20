@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * GENERICS IS ABOUT SAFETY WITHOUT CODE DUPLICATION
  */
-public class Main {
+public class UpperBoundedMain {
     public static void main(String[] args) throws IOException {
         File file;
         PersonSaver saver = new PersonSaver(new File("mock_file"));
