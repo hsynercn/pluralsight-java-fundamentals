@@ -5,3 +5,9 @@ Best practices for data that we dont control
 -Also we need to validate parameters to fail fast
 -After we detect a invalid null value, we can use a default value or throw a exception(null pointer exception or
 illegal argument exception)
+
+Best practices for data that we control
+-Never pass null as argument
+-Never return null
+-Don't use optional parameters, instead use overloading
+-Don't return null objects, use empty collections
