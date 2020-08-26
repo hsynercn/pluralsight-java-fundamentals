@@ -10,6 +10,8 @@ public class Shipment implements Iterable<Product>{
     private static final int MISSING_ITEM = -1;
 
     private final List<Product> products = new ArrayList<>();
+    private List<Product> lightVanProducts = new ArrayList<>();
+    private List<Product> heavyVanProducts = new ArrayList<>();
 
     public void add(Product product) {
         products.add(product);
@@ -35,15 +37,28 @@ public class Shipment implements Iterable<Product>{
     }
 
     public List<Product> getHeavyVanProducts() {
-        return null;
+        return heavyVanProducts;
     }
 
     public List<Product> getLighgtVanProducts() {
-        return null;
+        return lightVanProducts;
     }
 
     public void prepare() {
         products.sort(Product.BY_WEIGHT);
+        int splitPoint = findSplitPoint();
+        lightVanProducts = products.subList(0, splitPoint);
+        heavyVanProducts = products.subList(splitPoint, products.size());
+    }
+
+    private int findSplitPoint() {
+        int size = products.size();
+        for (int i = 0; i < size; i++) {
+            if (products.get(i).getWeight() > LIGHT_VAN_WEIGHT) {
+                return i;
+            }
+        }
+        return 0;
     }
 
 }
