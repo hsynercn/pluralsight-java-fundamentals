@@ -7,6 +7,7 @@ import java.util.List;
 public class Shipment implements Iterable<Product>{
 
     private static final int LIGHT_VAN_WEIGHT = 20;
+    private static final int MISSING_ITEM = -1;
 
     private final List<Product> products = new ArrayList<>();
 
@@ -16,8 +17,12 @@ public class Shipment implements Iterable<Product>{
 
     public boolean replace(Product oldProduct, Product newProduct) {
         int position = products.indexOf(oldProduct);
-        products.set(position, newProduct);
-        return true;
+        if (position == MISSING_ITEM) {
+            return false;
+        } else {
+            products.set(position, newProduct);
+            return true;
+        }
     }
 
     @Override
@@ -38,7 +43,7 @@ public class Shipment implements Iterable<Product>{
     }
 
     public void prepare() {
-
+        products.sort(Product.BY_WEIGHT);
     }
 
 }

@@ -2,6 +2,8 @@ package com.bergaz.fundamentals.collections_2020_version;
 
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ShipmentTest {
@@ -17,5 +19,33 @@ public class ShipmentTest {
         shipment.add(window);
         assertTrue(shipment.contains(door));
         assertTrue(shipment.contains(window));
+    }
+
+    @Test
+    public void replaceItems() {
+        shipment.add(door);
+        shipment.replace(door, window);
+        assertFalse(shipment.contains(door));
+        assertTrue(shipment.contains(window));
+    }
+
+    @Test
+    public void shouldNotReplaceMissingItems() {
+        shipment.add(window);
+        shipment.replace(door, floorPanel);
+        assertFalse(shipment.contains(floorPanel));
+    }
+
+    @Test
+    public void shouldIdentifyVanRequirements() {
+        shipment.add(door);
+        shipment.add(window);
+        shipment.add(floorPanel);
+
+        shipment.prepare();
+
+        assertTrue(shipment.getHeavyVanProducts().contains(floorPanel));
+        assertTrue(shipment.getHeavyVanProducts().contains(door));
+        assertTrue(shipment.getLighgtVanProducts().contains(window));
     }
 }

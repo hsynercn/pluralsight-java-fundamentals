@@ -1,6 +1,10 @@
 package com.bergaz.fundamentals.collections_2020_version;
 
+import java.util.Comparator;
+
 public class Product {
+    public static final Comparator<Product> BY_WEIGHT =
+            Comparator.comparingInt(Product::getWeight);
     private final String name;
     private final int weight;
 
