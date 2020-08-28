@@ -7,9 +7,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ShipmentTest {
-    public static Product door = new Product("Wooden Door", 35);
-    public static Product floorPanel = new Product("Floor Panel", 25);
-    public static Product window = new Product("Glass Window", 10);
+    public static Product door = new Product("Wooden Door", 35, id);
+    public static Product floorPanel = new Product("Floor Panel", 25, id);
+    public static Product window = new Product("Glass Window", 10, id);
 
     private Shipment shipment = new Shipment();
 
