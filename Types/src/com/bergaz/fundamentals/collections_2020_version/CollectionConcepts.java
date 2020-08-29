@@ -6,9 +6,9 @@ import java.util.Iterator;
 
 public class CollectionConcepts {
     public static void main(String[] args) {
-        Product door = new Product("Wooden Door", 35, id);
-        Product floorPanel = new Product("Floor Panel", 25, id);
-        Product window = new Product("Glass Window", 10, id);
+        Product door = new Product("Wooden Door", 35, 1);
+        Product floorPanel = new Product("Floor Panel", 25, 2);
+        Product window = new Product("Glass Window", 10, 3);
 
         /**
          * Java collections api provides a large builtin function set
