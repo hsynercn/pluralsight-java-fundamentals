@@ -31,9 +31,16 @@ public class UnmodifiableVsImmutable {
         System.out.println("unmodifiableCountryToPop: " + unmodifiableCountryToPop);
         System.out.println("copyOfMutableCountryToPopulation: " + copyOfMutableCountryToPopulation);
 
-
+        /**
+         * Map.of method generates a unmodifiable map
+         */
         Map<String, Integer> shortVersion = Map.of("UK", 67, "USA", 328);
-        shortVersion.put("Test", 1);
+        //shortVersion.put("Test", 1);
         System.out.println(shortVersion);
+
+        /**
+         * We can use unmodifiable copies for exposing the list or map to other classes
+         * They can read the data but can't change it
+         */
     }
 }
