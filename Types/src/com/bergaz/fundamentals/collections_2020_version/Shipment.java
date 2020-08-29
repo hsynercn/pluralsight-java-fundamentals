@@ -1,6 +1,7 @@
 package com.bergaz.fundamentals.collections_2020_version;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -47,8 +48,8 @@ public class Shipment implements Iterable<Product>{
     public void prepare() {
         products.sort(Product.BY_WEIGHT);
         int splitPoint = findSplitPoint();
-        lightVanProducts = products.subList(0, splitPoint);
-        heavyVanProducts = products.subList(splitPoint, products.size());
+        lightVanProducts = Collections.unmodifiableList(products.subList(0, splitPoint));
+        heavyVanProducts = Collections.unmodifiableList(products.subList(splitPoint, products.size()));
     }
 
     private int findSplitPoint() {
