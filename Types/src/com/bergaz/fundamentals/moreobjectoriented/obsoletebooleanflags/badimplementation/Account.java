@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.moreobjectoriented.obsoletebooleanflags;
+package com.bergaz.fundamentals.moreobjectoriented.obsoletebooleanflags.badimplementation;
 
 import java.math.BigDecimal;
 
@@ -12,11 +12,11 @@ public class Account {
     private boolean isClosed;
     private boolean isFrozen;
     private BigDecimal balance;
-    private AccountUnfrozen accountUnfrozen;
+    private AccountUnfrozen onUnfrozen;
 
     public Account(AccountUnfrozen accountUnfrozen) {
         this.balance = BigDecimal.ZERO;
-        this.accountUnfrozen = accountUnfrozen;
+        this.onUnfrozen = accountUnfrozen;
     }
 
     public void helderVerified() {
@@ -44,7 +44,7 @@ public class Account {
         //Deposit money
         if (this.isFrozen) {
             this.isFrozen = false;
-            this.accountUnfrozen.handle();
+            this.onUnfrozen.handle();
         }
         this.balance = this.balance.add(amount);
     }
@@ -54,6 +54,10 @@ public class Account {
         }
         if (this.isClosed) {
             return;
+        }
+        if (this.isFrozen) {
+            this.isFrozen = false;
+            this.onUnfrozen.handle();
         }
         //Withdraw money
         this.balance = this.balance.subtract(amount);
