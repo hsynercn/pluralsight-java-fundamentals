@@ -12,9 +12,11 @@ public class Account {
     private boolean isClosed;
     private boolean isFrozen;
     private BigDecimal balance;
+    private AccountUnfrozen accountUnfrozen;
 
-    public Account() {
+    public Account(AccountUnfrozen accountUnfrozen) {
         this.balance = BigDecimal.ZERO;
+        this.accountUnfrozen = accountUnfrozen;
     }
 
     public void helderVerified() {
@@ -25,7 +27,7 @@ public class Account {
         this.isClosed = true;
     }
 
-    public void freezeAccaount() {
+    public void freezeAccount() {
         if (!this.isVerified) {
             return;
         }
@@ -42,6 +44,7 @@ public class Account {
         //Deposit money
         if (this.isFrozen) {
             this.isFrozen = false;
+            this.accountUnfrozen.handle();
         }
         this.balance = this.balance.add(amount);
     }
