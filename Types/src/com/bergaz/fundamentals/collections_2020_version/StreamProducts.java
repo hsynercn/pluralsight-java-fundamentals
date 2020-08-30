@@ -20,6 +20,11 @@ public class StreamProducts {
         //namesOfLightProductsWeightSortedLoop(products);
         namesOfLightProductsWeightStream(products);
 
+        long count = products.stream().filter(product -> product.getName() == "Wooden Door").count();
+        System.out.println("Count: " + count);
+
+        int sum = products.stream().reduce(0, (acc,prd) -> acc + prd.getWeight(),Integer::sum );
+        System.out.println("SUM:" + sum);
     }
 
     private static void namesOfLightProductsWeightStream(List<Product> products) {
