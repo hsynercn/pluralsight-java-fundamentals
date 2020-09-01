@@ -1,6 +1,8 @@
 package com.bergaz.fundamentals.moreobjectoriented.immutableobjects.causebugmutablestate;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Demo {
     private boolean isHappyHour;
@@ -75,5 +77,16 @@ public class Demo {
         System.out.println();
         System.out.println(eur2 + " is " + (eur2.equals(coin) ? "" : "not ") + "equal to " + coin);
         System.out.println(coin + " is " + (coin.equals(eur2) ? "" : "not ") + "equal to " + eur2);
+
+        System.out.println();
+        Map<Integer, String> amountToName = new HashMap<>();
+        amountToName.put(42, "Meaning of life");
+        Integer key = 42;
+        System.out.println(key + " -> " + amountToName.getOrDefault(key, "nothing, really..."));
+
+        Map<Money, String> costToName = new HashMap<>();
+        costToName.put(new Money(new BigDecimal(42), new Currency("USD")), "Cost of life");
+        Money cost = new Money(new BigDecimal(42), new Currency("USD"));
+        System.out.println(cost + " -> " + costToName.getOrDefault(cost, "nothing, really..."));
     }
 }
