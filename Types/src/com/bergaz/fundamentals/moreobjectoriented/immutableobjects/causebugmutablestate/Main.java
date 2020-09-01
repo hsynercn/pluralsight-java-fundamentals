@@ -3,6 +3,7 @@ package com.bergaz.fundamentals.moreobjectoriented.immutableobjects.causebugmuta
 public class Main {
     public static void main(String[] args) {
         Demo demo = new Demo();
-        demo.runDiscoveringBug();
+        //demo.runDiscoveringBug();
+        demo.runInventingValueObject();
     }
 }

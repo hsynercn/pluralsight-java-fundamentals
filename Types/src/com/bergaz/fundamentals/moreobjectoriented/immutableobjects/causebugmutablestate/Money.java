@@ -3,7 +3,14 @@ package com.bergaz.fundamentals.moreobjectoriented.immutableobjects.causebugmuta
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * Value object
+ * They are immutable
+ */
 public class Money implements Comparable<Money> {
+    /**
+     * These fields are immutable
+     */
     private BigDecimal amount;
     private Currency currency;
 
@@ -32,6 +39,12 @@ public class Money implements Comparable<Money> {
         return other != null && other.getClass() == this.getClass() && this.equals((Money)other);
     }
 
+    /**
+     * Since value objects don't have identity
+     * Their whole content is their identity
+     * @param other
+     * @return
+     */
     private boolean equals(Money other) {
         return this.amount.equals(other.amount) && this.currency.equals(other.currency);
     }
