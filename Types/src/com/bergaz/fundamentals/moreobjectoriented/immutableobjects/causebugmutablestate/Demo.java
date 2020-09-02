@@ -9,6 +9,7 @@ public class Demo {
 
     /**
      * We changed the method implementation, added happy hour
+     *
      * @param cost
      */
     private Money reserve(Money cost) {
@@ -24,7 +25,7 @@ public class Demo {
 
         if (finalEnough && !enoughMoney) {
             System.out.println("Only this time, you will pay " + finalCost + " with your " + wallet);
-        }else if (finalEnough) {
+        } else if (finalEnough) {
             System.out.println("You will pay " + cost + " with your " + wallet);
         } else {
             System.out.println("You cannot pay " + cost + " with your " + wallet);
@@ -88,5 +89,7 @@ public class Demo {
         costToName.put(new Money(new BigDecimal(42), new Currency("USD")), "Cost of life");
         Money cost = new Money(new BigDecimal(42), new Currency("USD"));
         System.out.println(cost + " -> " + costToName.getOrDefault(cost, "nothing, really..."));
+
+
     }
 }
