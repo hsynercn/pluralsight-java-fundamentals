@@ -30,7 +30,14 @@ public class Demo {
 
         claimWarranty(item1);
 
-        Article article2 = new Article(null, null);
+        /**
+         * We get a exception from below line
+         * We can replace nulls with proper objects
+         */
+        //Article article2 = new Article(null, null);
+        //this.claimWarranty(item1);
+
+        Article article2 = new Article(Warranty.VOID, Warranty.VOID);
         this.claimWarranty(item1);
     }
 }
