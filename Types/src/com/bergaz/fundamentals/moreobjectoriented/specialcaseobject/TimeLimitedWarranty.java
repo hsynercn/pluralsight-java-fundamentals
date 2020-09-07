@@ -12,10 +12,17 @@ public class TimeLimitedWarranty implements Warranty{
         this.validFor = validFor;
     }
 
-    @Override
+    /*@Override
     public boolean isValidOd(LocalDate date) {
         return this.dateIssued.compareTo(date) <= 0 &&
                 this.getExpiredDate().compareTo(date) > 0;
+    }*/
+
+    @Override
+    public Warranty on(LocalDate date) {
+        return date.compareTo(this.dateIssued) < 0 ? Warranty.VOID
+                : date.compareTo(this.getExpiredDate()) > 0 ? Warranty.VOID
+                :this;
     }
 
     public LocalDate getExpiredDate() {

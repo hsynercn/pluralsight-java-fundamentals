@@ -6,16 +6,20 @@ import java.time.temporal.ChronoUnit;
 
 public class Demo {
 
+    public void offerMoneyBack() {
+        System.out.println("Offer money back.");
+    }
+
+    public void offerRepair() {
+        System.out.println("Offer repair.");
+    }
+
     public void claimWarranty(Article article) {
         LocalDate today = LocalDate.now();
 
-        if (article.getMoneyBackGuarantee().isValidOd(today)) {
-            System.out.println("Offer money back.");
-        }
+        article.getMoneyBackGuarantee().on(today).claim(this::offerMoneyBack);
 
-        if (article.getExpressWarranty().isValidOd(today)) {
-            System.out.println("Offer repair.");
-        }
+        article.getExpressWarranty().on(today).claim(this::offerRepair);
 
         System.out.println("--------");
 
