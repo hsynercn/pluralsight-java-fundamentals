@@ -3,7 +3,22 @@ package com.bergaz.fundamentals.moreobjectoriented.specialcaseobject;
 import java.time.LocalDate;
 
 public interface Warranty {
-    boolean isValidOd(LocalDate date);
+    /**
+     * We shouldn't teach catching fist to client
+     *
+     * @param date
+     * @return
+     */
+    //boolean isValidOd(LocalDate date);
+
+    Warranty on(LocalDate date);
+
+    /**
+     * We should give fish to client
+     */
+    default void claim(Runnable action) {
+        action.run();
+    }
 
     /**
      * Interface variables are static final by definition
