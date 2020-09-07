@@ -24,4 +24,8 @@ public interface Warranty {
      * Interface variables are static final by definition
      */
     Warranty VOID = new VoidWarranty();
+
+    static Warranty lifetime(LocalDate issuedOn) {
+        return new LifetimeWarranty(issuedOn);
+    }
 }
