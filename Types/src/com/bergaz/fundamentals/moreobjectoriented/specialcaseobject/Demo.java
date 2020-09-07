@@ -32,16 +32,12 @@ public class Demo {
 
         Article item1 = new Article(moneyBack1, warranty1);
 
-        claimWarranty(item1);
-
-        /**
-         * We get a exception from below line
-         * We can replace nulls with proper objects
-         */
-        //Article article2 = new Article(null, null);
-        //this.claimWarranty(item1);
-
-        Article article2 = new Article(Warranty.VOID, Warranty.VOID);
         this.claimWarranty(item1);
+        this.claimWarranty(item1.withVisibleDamage());
+        this.claimWarranty(item1.notOperational().withVisibleDamage());
+        this.claimWarranty(item1.notOperational());
+
+        Article item2 = new Article(Warranty.VOID, Warranty.lifetime(sellingDate));
+        this.claimWarranty(item2.withVisibleDamage().notOperational());
     }
 }
