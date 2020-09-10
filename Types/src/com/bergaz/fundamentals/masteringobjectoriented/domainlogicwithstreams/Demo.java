@@ -2,6 +2,7 @@ package com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Demo {
     private static Painter findCheapest1(double sqMeters, List<Painter> painters) {
@@ -23,6 +24,12 @@ public class Demo {
         return painters.stream()
                 .filter(Painter::isAvailable)
                 .min(Comparator.comparing(painter -> painter.estimateCompensation(sqMeters))).get();
+    }
+
+    private static Optional<Painter> findCheapest2Optional(double sqMeters, List<Painter> painters) {
+        return painters.stream()
+                .filter(Painter::isAvailable)
+                .min(Comparator.comparing(painter -> painter.estimateCompensation(sqMeters)));
     }
 
     /**
