@@ -26,6 +26,10 @@ public class Demo {
                 .min(Comparator.comparing(painter -> painter.estimateCompensation(sqMeters))).get();
     }
 
+    private static Optional<Painter> findCheapestNiceLookingOne(double sqMeters, List<Painter> painters) {
+        return Painter.stream(painters).available().cheapest(sqMeters);
+    }
+
     private static Optional<Painter> findCheapest2Optional(double sqMeters, List<Painter> painters) {
         return painters.stream()
                 .filter(Painter::isAvailable)
