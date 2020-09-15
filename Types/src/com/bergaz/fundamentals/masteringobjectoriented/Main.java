@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams;
+package com.bergaz.fundamentals.masteringobjectoriented;
 
 public class Main {
     public static void main(String[] args) {

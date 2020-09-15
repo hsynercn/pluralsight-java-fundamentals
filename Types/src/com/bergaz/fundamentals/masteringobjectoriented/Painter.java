@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams;
+package com.bergaz.fundamentals.masteringobjectoriented;
 
 import java.time.Duration;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams;
+package com.bergaz.fundamentals.masteringobjectoriented;
 
 import java.util.Comparator;
 import java.util.Optional;
