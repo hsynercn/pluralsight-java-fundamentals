@@ -1,11 +1,8 @@
-package com.bergaz.fundamentals.masteringobjectoriented.untanglingobjects;
-
-import com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams.Money;
-import com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams.Velocity;
+package com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams;
 
 import java.time.Duration;
 
-public class ProportionalPainter implements Painter{
+public class ProportionalPainter implements Painter {
     private String name;
     private double sqMetersPerHour;
     private MoneyRate rate;
@@ -17,8 +14,15 @@ public class ProportionalPainter implements Painter{
     }
 
     @Override
+    public String getName() { return this.name; }
+
+    @Override
     public boolean isAvailable() {
         return true;
+    }
+
+    private int getSecondsToPaint(double sqMeters) {
+        return (int)(sqMeters / this.sqMetersPerHour * 3600);
     }
 
     @Override
@@ -28,20 +32,12 @@ public class ProportionalPainter implements Painter{
 
     @Override
     public Money estimateCompensation(double sqMeters) {
-        return null;
+        return this.rate.getTotalFor(this.estimateTimeToPaint(sqMeters));
     }
 
-    @Override
-    public String getName() {
-        return this.name;
-    }
-
-    private int getSecondsToPaint(double sqMeters) {
-        return (int)(sqMeters / this.sqMetersPerHour * 3600);
-    }
-
-    @Override
-    public Velocity estimateVelocity(double sqMeters) {
-        return null;
+    public String toString() {
+        return String.format(
+            "%s painting %.2f sq. meters per hour at rate %s",
+            this.getName(), this.sqMetersPerHour, this.rate);
     }
 }

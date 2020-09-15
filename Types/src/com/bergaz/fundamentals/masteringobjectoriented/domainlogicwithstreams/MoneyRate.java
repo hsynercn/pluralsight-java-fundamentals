@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.masteringobjectoriented.untanglingobjects;
+package com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams;
 
 import java.time.Duration;
 
