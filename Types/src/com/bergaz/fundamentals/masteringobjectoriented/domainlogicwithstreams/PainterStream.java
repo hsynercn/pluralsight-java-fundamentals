@@ -1,6 +1,5 @@
 package com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams;
 
-import java.lang.management.OperatingSystemMXBean;
 import java.util.Comparator;
 import java.util.Optional;
 import java.util.stream.Stream;
