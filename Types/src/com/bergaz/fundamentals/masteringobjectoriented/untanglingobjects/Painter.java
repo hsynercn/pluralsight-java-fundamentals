@@ -1,5 +1,9 @@
 package com.bergaz.fundamentals.masteringobjectoriented.untanglingobjects;
 
+import com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams.Money;
+import com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams.PainterStream;
+import com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams.Velocity;
+
 import java.time.Duration;
 import java.util.List;
 
@@ -13,7 +17,7 @@ public interface Painter {
         return new Velocity(sqMeters, this.estimateTimeToPaint(sqMeters));
     }
 
-    static PaintersStream stream(List<Painter> painters) {
-        return new PaintersStream(painters.stream());
+    static PainterStream stream(List<com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams.Painter> painters) {
+        return new PainterStream(painters.stream());
     }
 }
