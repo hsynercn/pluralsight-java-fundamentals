@@ -20,9 +20,17 @@ public class Demo {
         );
     }
 
+    private List<Painter> createPainters2() {
+        return Arrays.asList(
+                new ProportionalPainter("Jane", 2.27, this.perHour(38)),
+                new ProportionalPainter("Jerry", 3.96, this.perHour(57)),
+                new CompressorPainter("Jeff", Duration.ofMinutes(12), 19, Duration.ofMinutes(27), 9, this.perHour(70))
+        );
+    }
+
     private void print(List<Painter> painters) {
         System.out.println("Painters:");
-        for (Painter painter: painters) {
+        for (Painter painter : painters) {
             System.out.println(painter);
         }
     }
@@ -78,5 +86,28 @@ public class Demo {
         System.out.println();
         System.out.println("Demo #1 - Letting all painters work together");
         this.workTogether1(sqMeters, painters1);
+
+        System.out.println();
+        System.out.println("Demo #2 - Letting a composite painter work");
+        Painter group1 = new CompositePainter(painters1);
+        this.print(group1, sqMeters);
+
+        List<Painter> painters2 = this.createPainters2();
+        System.out.println();
+        System.out.println("Demo 3# - Compressor and roller painters working together");
+        this.workTogether1(sqMeters, painters2);
+
+        System.out.println();
+        System.out.println("Demo #4 - Composite painter with compressor and roller painters");
+        Painter group2 = new CompositePainter(painters2);
+        this.print(group2, sqMeters);
+
+        List<Painter> painters3 = Arrays.asList(
+                painters1.get(0), painters1.get(1),
+                new CompressorPainter("Jim", Duration.ofMinutes(9), 14,
+                        Duration.ofMinutes(22), 11, this.perHour(90)),
+                group2);
+        Painter group3 = new CompositePainter(painters3);
+        this.print(group3, sqMeters);
     }
 }
