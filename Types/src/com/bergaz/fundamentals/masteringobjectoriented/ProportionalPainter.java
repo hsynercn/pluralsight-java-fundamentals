@@ -1,6 +1,7 @@
 package com.bergaz.fundamentals.masteringobjectoriented;
 
 import java.time.Duration;
+import java.util.Optional;
 
 public class ProportionalPainter implements Painter {
     private String name;
@@ -16,13 +17,13 @@ public class ProportionalPainter implements Painter {
     @Override
     public String getName() { return this.name; }
 
-    @Override
-    public boolean isAvailable() {
-        return true;
-    }
-
     private int getSecondsToPaint(double sqMeters) {
         return (int)(sqMeters / this.sqMetersPerHour * 3600);
+    }
+
+    @Override
+    public Optional<Painter> available() {
+        return Optional.of(this);
     }
 
     @Override

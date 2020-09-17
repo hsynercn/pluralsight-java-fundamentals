@@ -1,6 +1,7 @@
 package com.bergaz.fundamentals.masteringobjectoriented;
 
 import java.time.Duration;
+import java.util.Optional;
 
 public class CompressorPainter implements Painter {
     private String name;
@@ -27,7 +28,9 @@ public class CompressorPainter implements Painter {
     public String getName() { return this.name; }
 
     @Override
-    public boolean isAvailable() { return true; }
+    public Optional<Painter> available() {
+        return Optional.of(this);
+    }
 
     @Override
     public Duration estimateTimeToPaint(double sqMeters) {
