@@ -1,10 +1,11 @@
-package com.bergaz.fundamentals.masteringobjectoriented.domainlogicwithstreams;
+package com.bergaz.fundamentals.masteringobjectoriented;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Optional;
 
 public interface Painter {
-    boolean isAvailable();
+    Optional<Painter> available();
     Duration estimateTimeToPaint(double sqMeters);
     Money estimateCompensation(double sqMeters);
     String getName();
@@ -13,7 +14,7 @@ public interface Painter {
         return new Velocity(sqMeters, this.estimateTimeToPaint(sqMeters));
     }
 
-    static PainterStream stream(List<Painter> painters) {
-        return new PainterStream(painters.stream());
+    static PaintersStream stream(List<Painter> painters) {
+        return new PaintersStream(painters.stream());
     }
 }

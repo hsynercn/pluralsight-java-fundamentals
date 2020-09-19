@@ -1,4 +1,4 @@
-package com.bergaz.fundamentals.masteringobjectoriented.untanglingobjects;
+package com.bergaz.fundamentals.masteringobjectoriented;
 
 import java.time.Duration;
 
@@ -11,7 +11,7 @@ public class Velocity {
         this(sqMeters / (double)time.getSeconds());
     }
 
-    private Velocity(double sqMetersPerSecond) {
+    public Velocity(double sqMetersPerSecond) {
         this.sqMetersPerSecond = sqMetersPerSecond;
     }
 
