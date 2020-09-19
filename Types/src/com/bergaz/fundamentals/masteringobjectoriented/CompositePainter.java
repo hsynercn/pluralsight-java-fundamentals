@@ -60,6 +60,15 @@ public class CompositePainter implements Painter {
                 .orElse(Money.ZERO);
     }
 
+    private Stream<WorkAssignment> schedule(double sqMeters, Velocity totalVelocity) {
+        return Painter.stream(this.painters)
+                .map(painter -> painter.assign(sqMeters * painter.estimateVelocity(sqMeters).divideBy(totalVelocity)));
+    }
+
+    private Stream<WorkAssignment> schedule(double sqmeters) {
+        return this.schedule(sqmeters, this.estimateTotalVelocity(sqmeters));
+    }
+
     @Override
     public String getName() {
         return this.getPainterNames().collect(Collectors.joining(", ", "{ ", " }"));
