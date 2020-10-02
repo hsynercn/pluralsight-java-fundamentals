@@ -1,0 +1,17 @@
+Section overview:
+    -Streams
+    -Stream errors and cleanup
+    -Chaining streams
+    -File and buffered streams
+    -Package java.nio.file
+    -File system
+    -Creating and working with zip file system
+
+Stream is and ordered sequence of data
+    -Provides a common i/o model
+    -Hides details of source
+    -Stream types are unidirectional
+
+Stream categories
+    -byte stream as binary
+    -text stream as unicode
