@@ -32,5 +32,12 @@ public class TryWithResources {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("");
+
+        try (MyAutoCloseable autoCloseable = new MyAutoCloseable()) {
+            autoCloseable.sayHello();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

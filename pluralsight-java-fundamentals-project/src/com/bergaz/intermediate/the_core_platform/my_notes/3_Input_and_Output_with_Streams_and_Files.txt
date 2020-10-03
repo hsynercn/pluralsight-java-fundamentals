@@ -68,7 +68,56 @@ Try-with-resources
     *Handle try body
     *Handle close method call
 
+Try-with-resources block call close function at the end of the try block, it handles the exceptions as expected also
+it handles the close function exceptions. In a practical manner with less line we provide same functionality with
+basic try catch flow.
 
+Chaining Streams
+-One stream instance leverages another
+-Creates higher-level functionality
+-Simplifies reusability
+-Chain using constructor
+
+For example InputStreamReader leverages chaining
+-Reader behaviour over InputStream
+-Character behavior over binary
+
+*Commonly higher level stream close also closes the lower level stream
+
+We can create our own "high-level" streams
+    -Most commonly chain similar streams
+    Chain a reader over a reader
+
+Classes available to simplify customization
+-FilterReader, FilterWriter
+-FilterInputStream, FilterOutputStream
+-Abstract classes
+-Methods call to contained stream methods
+-Override only customized methods
+
+Accessing Files
+
+Class for each stream type in java.io package
+    -FileReader
+    -FileWriter
+    -FileInputStream
+    -FileOutputStream
+
+*The java.io classes are now deprecated
+    -Still widely used in code
+
+Buffered Streams:
+-Direct file access can be inefficient
+-Buffered stream can improve efficiency
+    *Buffers content in memory
+    *Performs reads/writes in large chunks
+    *Reduces underlying stream interaction
+
+Buffering is available for all 4 stream types
+-BufferedReader
+-BufferedWriter
+-BufferedInputStream
+-BufferedOutputStream
 
 
 
