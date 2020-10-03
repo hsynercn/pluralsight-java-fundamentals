@@ -163,6 +163,28 @@ Files Type
         *write:open a file write all content and close it
 
 
+Files Systems
+-Files are contained within a file system
+    *Has a default file system
+    *Specialized file systems are supported (Zip etc.)
+-Path instances are tied to a file system
+    *Paths class works only for default file system
+
+File System Types
+    FileSystem:Represents an individual file system, factory for Path instances
+    FileSystems:Static FileSystem factory methods
+        -Open or create a file system: newFileSystem
+
+Accessing File Systems
+    -Specifies of URI cary greatly
+    -Zip file system uses "jar:file" scheme
+        jar:file:/test/data/bar.zip
+
+Getting a path from default file system:
+    Path sourceFile = FileSystems.getDefault().getPath(sourceFilePathString);
+    Path sameSourceFile = Paths.get(sourceFilePathString);
+    *This two lines return same Path, Paths.get is just a shortcut for getting a path from default FileSystem
+
 
 
 
