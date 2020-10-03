@@ -20,6 +20,7 @@ Stream categories
 *In java compiler can take care of a widening conversion
     -Like we can provide a byte for an int method parameter
 
+Byte side:              Text side:
 InputStream             Reader
 int read()              int read()
 int read(byte[] buff)   int read(char[] buff)
@@ -28,4 +29,48 @@ OutputStream            Writer
 void write(int b)       void write(int ch)
 void write(byte[] buff) void write(char[] buff)
                         void write(String str)
+
+
+Common Input/OutputStream Derived Classes
+
+InputStream                             Reader
+-ByteArrayInputStream                   -CharArrayReader
+-PipedInputStream                       -StringReader
+    >(better produces-consumer cases)   -PipedReader
+-FileInputStream                        -InputStreamReader > FileReader
+
+OutputStream                            Writer
+-ByteArrayOutputStream                  -CharArrayWriter
+-PipedOutputStream                      -StringWriter
+-FileOutputStream                       -PipedWriter
+                                        -OutputStreamWriter > FileWriter
+
+
+Stream Realities
+Error handling:They throw exceptions
+Cleanup:We can't rely on Java garbage collector
+
+We should provide a reliable cleanup, stream implements closeable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
