@@ -119,6 +119,17 @@ Buffering is available for all 4 stream types
 -BufferedInputStream
 -BufferedOutputStream
 
+Buffered Streams and Line Breaks
+    -Line breaks vary across platforms
+        Unix \n (new line)
+        Windows \r\n (carriage return and new line)
+
+Buffered streams add line break support
+-Uses correct value for current platform
+
+*BufferedWriter:Generates line breaks with: newLine()
+*BufferedReader:Line based read with: readLine()
+
 
 
 
