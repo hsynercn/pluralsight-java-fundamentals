@@ -1,0 +1,31 @@
+Section Overview
+    -Moving beyond string concatenation
+    -StringJoiner class
+    -Creating string with format specifiers
+    -Regular expressions
+    -String class support for regular expressions
+    -Regular expression classes
+
+More Powerful Solutions to Creating String Representations
+
+The need for more powerful string creation
+    -Concatenating string is often not enough
+    Very focused on creating details
+    Numeric conversions awkward
+    -StringBuilder has the same issue
+
+Options for more powerful string creation
+    -StringJoiner:Simplifies joining a sequence of values
+    -String formatting:Can specify desired appearance without dealing with
+    creation details
+
+StringJoiner
+    -StringJoiner has a specific purpose, simplify composing a string
+    comprised of a sequence of values
+
+How it works
+    Construct the StringJoiner
+    Specify string to separate values
+    *Optionally specify start/end string
+    Add values
+    Retrieve result
