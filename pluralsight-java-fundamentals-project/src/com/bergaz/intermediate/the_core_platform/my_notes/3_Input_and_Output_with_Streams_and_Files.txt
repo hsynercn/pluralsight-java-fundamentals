@@ -186,7 +186,42 @@ Getting a path from default file system:
     *This two lines return same Path, Paths.get is just a shortcut for getting a path from default FileSystem
 
 
+SUMMARY
 
+java.io package
+    -Stream-based IO
+    -Legacy file/filesystem types
+
+java.nio.file package
+    -File/filesystem types
+
+Stream
+-Ordered sequence of data
+-Unidirectional
+-Binary or character based
+-Can be chained together
+
+Try-with-resource
+-Automates resource cleanup
+-Resource implement AutoCloseable
+
+Path
+    -Locates a file system item
+    -Includes the file system
+
+Paths
+    -Factory for Path instances for default file system
+
+Files
+    -Methods for interacting with files
+
+FileSystem
+    -Represent a file system
+    -Can have specialized such as zip
+    -File systems identified by URIs
+
+FileSystems
+    -Methods to create/open file system
 
 
 
