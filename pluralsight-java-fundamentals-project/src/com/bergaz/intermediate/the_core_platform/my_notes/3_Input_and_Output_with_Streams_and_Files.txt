@@ -47,10 +47,27 @@ OutputStream                            Writer
 
 
 Stream Realities
-Error handling:They throw exceptions
-Cleanup:We can't rely on Java garbage collector
+Error handling:Stream operations can throw exceptions, we rely on external data resources
+Cleanup:We can't rely on Java garbage collector to clean used stream objects
 
-We should provide a reliable cleanup, stream implements closeable
+We should provide a reliable cleanup mechanism for streams, an automated cleanup flow.
+
+AutoCloseable Interface:
+-One method > close
+-Base interface of Closeable interface
+    interface Closeable extends AutoCloseable {
+        void close() throws IOException
+    }
+-Provides support for try-with-resources
+
+Try-with-resources
+-Automates cleanup of one or more resources
+-A "resource" is any type that implements AutoCloseable
+-Syntactic similarity with try
+-Optionally includes catch blocks
+    *Handle try body
+    *Handle close method call
+
 
 
 

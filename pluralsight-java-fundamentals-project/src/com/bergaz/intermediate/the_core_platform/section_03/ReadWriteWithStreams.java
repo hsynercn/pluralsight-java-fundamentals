@@ -4,11 +4,11 @@ import java.io.*;
 
 public class ReadWriteWithStreams {
     public static void main(String[] args) throws IOException {
-        String inputFilePath = "D:/workspace/pluralsight-java-fundamentals/Types/src/com/bergaz/" +
-                "fundamentals/iteration_two/intermediate/the_core_platform/section_03/input.txt";
+        
 
-        String outputFilePath = "D:/workspace/pluralsight-java-fundamentals/Types/src/com/bergaz/" +
-                "fundamentals/iteration_two/intermediate/the_core_platform/section_03/output.txt";
+        String inputFilePath = LocalFilePath.getPath() + "/input.txt";
+
+        String outputFilePath = LocalFilePath.getPath() + "/output.txt";
 
 
         InputStream input = new FileInputStream(inputFilePath);
@@ -66,6 +66,7 @@ public class ReadWriteWithStreams {
         writer.write(charBuff);
         String stringVal = "Hello";
         writer.write(stringVal);
+
     }
 }
 
