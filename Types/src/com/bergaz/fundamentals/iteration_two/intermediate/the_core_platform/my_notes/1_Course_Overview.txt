@@ -1,7 +1,0 @@
-Java is good and we should learn it.
-Subjects:
-   -Working with collections
-   -Streams, files, and the file system
-   -Configuring application execution
-   -Multithreading and concurrency
-   -Runtime type information
