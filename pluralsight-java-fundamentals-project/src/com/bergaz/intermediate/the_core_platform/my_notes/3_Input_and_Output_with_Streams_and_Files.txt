@@ -130,6 +130,42 @@ Buffered streams add line break support
 *BufferedWriter:Generates line breaks with: newLine()
 *BufferedReader:Line based read with: readLine()
 
+Accessing Files with the java.nio.file Package:
+-java.io FileReader, FileWriter, FileOutputStream, FileInputStream are deprecated
+-java.io InputStream, OutputStream, BufferedReader, BufferedWriter they are still widely used only FileXXX classes are
+deprecated
+
+-java.nio provides several benefits
+    *Better exception reporting
+    *Better scalability, better performance at large files
+    *More file system feature support(security etc)
+    *Simplified common tasks
+
+Path
+    -Used to locate file system item
+    -Can be file or a directory
+
+Paths
+    -Static Path factory methods
+    -From string-based hierarchical path
+    -From URI
+
+Files Type
+    -Static methods for interacting with files
+    -Create, copy, delete etc
+    -Open file streams
+        *newBufferedReader
+        *newBufferedWriter
+        *newInputStream
+        *newOutputStream
+    -Ream/write file contents
+        *realAllLines:open file read all content and close it
+        *write:open a file write all content and close it
+
+
+
+
+
 
 
 
