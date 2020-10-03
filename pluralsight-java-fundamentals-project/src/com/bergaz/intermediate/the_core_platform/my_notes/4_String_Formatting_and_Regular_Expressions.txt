@@ -29,3 +29,18 @@ How it works
     *Optionally specify start/end string
     Add values
     Retrieve result
+
+StringJoiner can handle edge case like single element printing with
+separator, start, and end string
+
+StringJoiner cases:
+    When only one value added
+    -With separator only:returns the added value
+    -With start/end:returns added value within start/end
+    When no value added
+    -With separator only:returns empty string
+    -With start/end:returns start/end only
+
+We can customize empty handling:
+-Specified with setEmptyValue method
+-Used only when add method not called

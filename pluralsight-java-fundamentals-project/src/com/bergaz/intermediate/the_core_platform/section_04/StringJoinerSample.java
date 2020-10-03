@@ -20,5 +20,31 @@ public class StringJoinerSample {
         stringJoinerSquare.add("gamma");
 
         System.out.println(stringJoinerSquare.toString());
+
+        StringJoiner stringJoinerSingle = new StringJoiner(", ");
+        stringJoinerSingle.add("alpha");
+        System.out.println(stringJoinerSingle.toString());
+
+        StringJoiner stringJoinerSingleBracers = new StringJoiner(", ", "{", "}");
+        stringJoinerSingleBracers.add("alpha");
+        System.out.println(stringJoinerSingleBracers.toString());
+
+        StringJoiner stringJoinerEmpty = new StringJoiner(", ");
+        System.out.println(stringJoinerEmpty.toString());
+
+        StringJoiner stringJoinerEmptyBracers = new StringJoiner(", ", "{", "}");
+        System.out.println(stringJoinerEmptyBracers.toString());
+
+        StringJoiner stringJoinerEmptyState = new StringJoiner(", ", "{", "}");
+        stringJoinerEmptyState.setEmptyValue("THIS IS EMPTY");
+        System.out.println(stringJoinerEmptyState.toString());
+
+        StringJoiner stringJoinerNotEmpty = new StringJoiner(", ");
+        stringJoinerNotEmpty.add("");
+        System.out.println(stringJoinerNotEmpty.toString());
+
+        StringJoiner stringJoinerNotEmptyWithBraces = new StringJoiner(", ", "{", "}");
+        stringJoinerNotEmptyWithBraces.add("");
+        System.out.println(stringJoinerNotEmptyWithBraces.toString());
     }
 }
