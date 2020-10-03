@@ -14,6 +14,7 @@ public class StreamExceptionHandling {
 
         String inputFilePath = LocalFilePath.getPath() + "/input_does_not_exits.txt";
 
+        System.out.println("Reader exception sample:");
         Reader reader = null;
         try {
             reader = new FileReader(inputFilePath);
