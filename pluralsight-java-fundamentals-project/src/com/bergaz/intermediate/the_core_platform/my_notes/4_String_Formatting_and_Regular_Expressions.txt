@@ -103,3 +103,4 @@ Argument Index
 Index           Meaning
 Not specified   Corresponds sequentially to argument
 $index          Index of argument to use
+<               Corresponds to same argument as previous format specifier
