@@ -1,0 +1,67 @@
+Overview
+    -The role of collections
+    -Collections adn type safety
+    -Common collection methods
+    -Collections and entry equality
+    -New collection methods in Java 9
+    -Converting between collections and arrays
+    -Common collections interface and classes
+    -Sorting behavior
+    -Map collections
+
+Managing Groups of Data
+    -We need to manage groups of data
+    -Most basic solution is to use arrays
+
+Arrays have limitations
+    -Statically sized
+    -Requires explicit position management
+    -Little more than a bunch of values
+
+    Collections provide more powerful options
+
+The Role of Collections
+    -Iterable
+    -Can provide type safety
+    -Tend to dynamically size
+
+A wide variety of collections are available
+    -May be simple list of values
+    -Can provide optimization or sophistication
+        *Ordering
+        *Prevent duplicates
+        *Manage data as name/value pairs
+
+Collections and Type Safety
+
+By default collections hold Object types
+    -Must convert return values to desired type
+    -Does not restrict types of values added
+
+Collections can be type restricted
+    -Uses the Java concept of generics
+    -Type specific during collection creation
+
+Collection type restriction is pervasive
+    -Return values appropriately typed
+    -Adding values limited to appropriate type
+
+Collection Interface
+-Each collection type has its own features, but there are many that are common
+-Collection interface
+    *Provides common collection methods
+    *Implemented by most collection types
+        >Map collections are notable exception
+    *Extends iterable interface
+
+Common Collection Methods
+
+Method      Description
+size        number of elements
+clear       remove all elements
+isEmpty     return tru if no elements
+add         add single element
+addAll      add all members of another collection
+
+
+
