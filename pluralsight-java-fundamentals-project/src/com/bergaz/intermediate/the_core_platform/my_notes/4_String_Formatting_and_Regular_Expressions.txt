@@ -84,6 +84,22 @@ x X     Integral        32              20
 f       Floating Point  123.0           123.000000
 e E     Floating Point  123.0           1.230000e+02
 s       General         "Hello"         Hello
-s:implements Formattable:Return value of format method
-  Other classes:Return value of toString method
 
+When we use %s formatting a class:
+-implements Formattable case:Return value of format method
+-Other classes:Return value of toString method
+
+Format Flags
+Flag        Meaning
+#           Include radix
+0           Zero-padding
+-           Left justify
+,           Including grouping separator
+space       Leave space for positive numbers
++           Always show sign
+(           Enclose negative values in parenthesis
+
+Argument Index
+Index           Meaning
+Not specified   Corresponds sequentially to argument
+$index          Index of argument to use
