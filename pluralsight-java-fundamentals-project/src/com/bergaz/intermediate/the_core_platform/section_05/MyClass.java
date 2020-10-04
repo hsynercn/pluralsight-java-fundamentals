@@ -2,7 +2,7 @@ package com.bergaz.intermediate.the_core_platform.section_05;
 
 import java.util.StringJoiner;
 
-public class MyClass {
+public class MyClass implements Comparable<MyClass>{
     String label, value;
 
     public MyClass(String label, String value) {
@@ -38,5 +38,10 @@ public class MyClass {
         stringJoiner.add(this.getLabel());
         stringJoiner.add(this.getValue());
         return stringJoiner.toString();
+    }
+
+    @Override
+    public int compareTo(MyClass other) {
+        return this.getValue().compareToIgnoreCase(other.getValue());
     }
 }

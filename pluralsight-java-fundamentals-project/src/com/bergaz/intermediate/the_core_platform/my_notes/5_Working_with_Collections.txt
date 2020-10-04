@@ -83,5 +83,54 @@ Converting Between Collections and Arrays
 -Array content can be retrieved as collection
  -Use Arrays class' asList method
 
+Collection Types
+-Java provides a vide variety of collections, each with specific behavior
+-Collection Interfaces:Provide contract for collection behavior
+-Collection classes:Provide collection implementation, implement one or more collection interfaces
+
+Common Collection Interfaces
+Interface           Description
+Collection          Basic collection operations
+List                Collection that maintains a particular order
+Queue               Collection with the concept of order and specific "head" element
+Set                 Collection that contains no duplicate values
+SortedSet           A Set whose members are sorted
+
+Common Collection Classes
+Class       Description
+ArrayList   A List backed by resizable array, efficient random access but inefficient random inserts
+LinkedList  A List and Queue backed by a doubly-linked list, efficient random insert but inefficient random access
+HashSet     A Set implemented as a hash table, efficient general purpose usage at any size
+TreeSet     A SortedSet implemented as a balanced binary tree, Members accessible in order but less efficient to modify
+            and search than a HashSet
+
+Sorting
+Some collections rely on sorting
+There is two ways to specify sort behavior
+
+Comparable interface
+-Implemented by the type to be sorted
+-Type specifies own sort behavior, should be consistent with equals
+
+Comparator interface
+-Implemented by type to perform sort
+-Specifies sort behavior for another type
+
+Comparable interface requires "int compareTo()" method
+* compareTo should return for:
+- : this < other
+0 : this = other
++ : this > other
+
+Comparator interface requires "int compare(Type x, Type y)" method
+- : x < y
+0 : x = y
++ : x > y
+
+
+
+
+
+
 
 
