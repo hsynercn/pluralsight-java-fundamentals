@@ -74,7 +74,14 @@ Java8 Collection Methods
     *forEach:perform code for each member
     *removeIf:remove element if test is true
 
+Converting Between Collections and Arrays
+-Some APIs require an array often due to legacy or library code
+-Collection interface can return an array
+    *toArray():returns Object array
+    *toArray(T[]] array):returns array of type T
 
+-Array content can be retrieved as collection
+ -Use Arrays class' asList method
 
 
 
