@@ -114,3 +114,60 @@ Formatter Class
 Appendable interface implementing classes
     -StringBuilder
     -Writer
+
+String Matching with Regular Expression
+    Regular Expression:A powerful pattern matching syntax
+    Java support regex
+
+String Class Support for Regex
+    -replaceFirst:return a new updated string
+    -replaceAll:return a new updated string
+    -split:split string into an array
+    -match:identifies if string matches the pattern
+
+Dedicated Regular Expression Classes
+
+Regular expression considerations
+    -Compilation is processing intensive
+    -String methods repeat compilation on every use
+
+Pattern class
+    -Compiles a regular expression
+    -Factory for Matcher class instances
+
+Matcher class
+    -Applies compiled expression to a string
+
+
+SUMMARY
+
+StringJoiner
+    -Simplifies combining sequence of values
+    -Construct with values separator, optionally start/end string
+    -Add the values and retrieve string
+    -Can specify special value for empty (no values are added)
+
+Format Specifiers
+    -Focus on describing the desired result
+    -Parts of a specifier
+        - % (required)
+        - Conversion (required)
+        - Precision
+        - Flags
+        - Argument index
+
+String and formatter classes supports format specifiers
+Formatter class writes formatted content to any class that implements Appendable interface
+
+Regex
+    -Powerful string matching
+
+    String support
+    -replaceAll
+    -split
+    -match
+
+    Dedicated class
+        Pattern:Compiles regex
+        Matcher:Applies pattern to string
+
