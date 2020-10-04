@@ -59,9 +59,14 @@ Common Collection Methods
 Method      Description
 size        number of elements
 clear       remove all elements
-isEmpty     return tru if no elements
+isEmpty     return true if no elements
 add         add single element
 addAll      add all members of another collection
+contains    return true if contains element
+containsAll return true if contains all members of another collection
+remove      remove element
+removeAll   remove all elements contained in another collection
+retainAll   remove all elements not contained in another collection
 
 
 
