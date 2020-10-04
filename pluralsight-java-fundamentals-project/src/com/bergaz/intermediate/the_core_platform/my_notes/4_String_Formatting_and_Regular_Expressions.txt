@@ -104,3 +104,13 @@ Index           Meaning
 Not specified   Corresponds sequentially to argument
 $index          Index of argument to use
 <               Corresponds to same argument as previous format specifier
+
+
+Writing Formatted Content to a Stream
+Formatter Class
+    -Provides formatting capabilities
+    -Writes content to any type that implements Appendable interface
+
+Appendable interface implementing classes
+    -StringBuilder
+    -Writer

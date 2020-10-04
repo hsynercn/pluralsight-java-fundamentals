@@ -1,0 +1,3 @@
+Hello this is a formatter test on writer 123 123.123001 1.234770e+03 
+Hello this is a formatter test on writer 9123 9123.123047 9.123477e+04 
+>        11< >222       < >000003,333< > 00004,444< 
