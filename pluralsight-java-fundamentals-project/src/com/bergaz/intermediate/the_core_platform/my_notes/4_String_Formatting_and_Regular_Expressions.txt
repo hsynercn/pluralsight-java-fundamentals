@@ -44,3 +44,46 @@ StringJoiner cases:
 We can customize empty handling:
 -Specified with setEmptyValue method
 -Used only when add method not called
+
+Constructing Strings with Format Specifiers
+
+Format specifiers
+    -Focus is on describing the desired result not concerned with how
+    -Can control many aspects of appearance
+        *Positioning
+        *Decimal places
+        *Representations
+    -Some methods support format specifiers
+        String.format
+        System.out.printf
+        Formatter.format
+
+*Default float printing displays 6 digits after dot
+
+Format Specifier Structure
+
+%d
+%:Format specifier start
+d:Conversion
+
+%.1f
+%:Format specifier start
+.1:Precision
+f:Conversion
+
+%[argument index][flags][width][precision]conversion
+
+"%conversion" is the minimum requirement to display some value
+[width]:Minimum characters to display, space padded , right justified by default
+[precision]:Decimal place to display
+
+Symbol  Type            Example Value   Result
+d       Integral        32              32
+o       Integral        32              40
+x X     Integral        32              20
+f       Floating Point  123.0           123.000000
+e E     Floating Point  123.0           1.230000e+02
+s       General         "Hello"         Hello
+s:implements Formattable:Return value of format method
+  Other classes:Return value of toString method
+
