@@ -155,9 +155,39 @@ keySet          Return a Set of the contained keys
 forEach         Perform action for each entry
 replaceAll      Perform action for each entry replacing the each key's value with the action's result
 
+Common Sorted Map Methods > Sorted Map interface extends Map interface
+Method      Description
+firstKey    Return first key
+lastKey     Return last key
+headMap     Return a map for all keys are less than the specified key > EXCLUSIVE OF KEY PASSED
+tailMap     Return a map for all keys that are greater than or equal to the specified key > INCLUSIVE OF KEY PASSED
+subMap      Return a map for all keys that are greater than or equal to the starting key and less than the ending key
 
 
+SUMMARY
 
+Collections hold and organize values
+-Iterable
+-Tend to dynamically size
+-CAn provide optimization or sophistication
+
+Collections can be type restricted
+-Uses Java generics to specify type
+-Return values appropriately typed
+-Typing enforced on added values
+
+Can convert between collections and arrays
+-Collections provide toArray method
+-Arrays class provides toList method
+
+Some collections provide sorting
+-Comparable interface, defines own sort
+-Comparator interface, specifies sort for another type
+
+Map collections
+-Stores key/value pairs
+-Keys are unique
+-Some maps sort keys
 
 
 
