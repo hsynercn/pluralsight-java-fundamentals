@@ -68,5 +68,13 @@ remove      remove element
 removeAll   remove all elements contained in another collection
 retainAll   remove all elements not contained in another collection
 
+Java8 Collection Methods
+-Java8 introduces lambda expressions, simplify passing code as arguments
+-Collection methods that leverage lambdas
+    *forEach:perform code for each member
+    *removeIf:remove element if test is true
+
+
+
 
 
