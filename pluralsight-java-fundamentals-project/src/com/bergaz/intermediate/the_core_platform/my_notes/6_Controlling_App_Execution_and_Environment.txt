@@ -90,5 +90,81 @@ Including Default Properties in Package
     *Use getResourceAsStream method, accessed through any class in package
         ClassName.class, this.getClass()
 
+Class Loading
+-Most applications do not stand alone
+    *Rely on classes in other packages
+    *JDK packages located automatically
+    *May need help locating other packages
+
+Locating packages at development time
+-Specific to IDE
+
+Locating packages at runtime
+-Java provides a number of options
+
+Default Class Loading
+-Java searches current directory,
+    classes must be .class and must be under package directories
+
+Specifying Class Path
+-Can provide the list of paths to search
+    *Search in the order they appear
+    *Current directory used only if in list
+-Two options for specifying class path
+    *Environment variable
+    *Java command option
+
+Specifying Class Path as Environment Variable
+-We can specify with environment variable CLASSPATH
+-Becomes default path, all programs use it
+-It is a shared space, can break others
+
+Class Path Structure
+-Paths provided as delimited list
+-To reference classes in .class files, path to folder containing package root
+-To reference classes in jar files, path to jar file name including jar file name
+
+sample class paths:
+
+Windows:
+    java -cp \psdir;\libdir com.pluralsight.training.Main
+Unix:
+    java -cp /psdir:/libdir com.pluralsight.training.Main
+
+Applications searches psdir first, later libdir
+
+
+For jar file referencing
+Windows:
+    java -cp \psdir\training.jar;\libdir com.pluralsight.training.Main
+Unix:
+    java -cp /psdir/training.jar:/libdir com.pluralsight.training.Main
+
+
+Class Loading with Java -jar Option
+-Java -jar option locks down class loading
+    *No other class loading source is used
+-Provides tight control
+
+ourapp.jar: Contains a manifest file
+                *Main-Class: com.pluralsight.training.Main
+            Contains all dependent .class files
+
+SAMPLE COMMAND:
+    java -jar ourapp.jar
+
+With this execution we trust to jar file
+
+Execution Environment Information
+-Apps often need environment information
+    *User, system, Java config, app specific info
+-Java provides 2 common solutions
+    *System properties
+    *Environment variables
+
+System Properties
+-Java provides info about environment with System.getProperty
+-User, Java installation, OS config info
+-Each value accessed with a string name
 
 
