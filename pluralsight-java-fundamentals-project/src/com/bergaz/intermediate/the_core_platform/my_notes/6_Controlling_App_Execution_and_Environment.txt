@@ -167,4 +167,9 @@ System Properties
 -User, Java installation, OS config info
 -Each value accessed with a string name
 
+Environment Variables
+-Most OS's support environment variables
+-Many variable set by OS
+-We can provide app specific variables
+-Sometimes they overlap with system properties
 
