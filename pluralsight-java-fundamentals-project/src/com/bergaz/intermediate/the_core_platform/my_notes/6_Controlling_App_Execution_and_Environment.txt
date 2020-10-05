@@ -173,3 +173,14 @@ Environment Variables
 -We can provide app specific variables
 -Sometimes they overlap with system properties
 
+
+SUMMARY
+-Apps require more than just code, behavior is affected by many factors
+-Command line arguments received to main method
+-Properties class can provide name/value pairs, they can persist across executions, supports default vals
+-Class path control where classes are found
+    *Can set with CLASSPATH, can effect other apps
+    *Better to use Java command -cp option, sets path specific to each app
+-Execution environment info is available
+    *Java provides system properties
+    *OS environment variable access, can provide app specific variables
