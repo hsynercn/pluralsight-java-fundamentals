@@ -73,3 +73,22 @@ Properties Persisted as XML
     *Stored as element named entry, key stored as attribute, value stored as element value
     *Use comment element for comments
 
+Providing Default Properties
+-Simplifies configuration
+-Provide initial values
+-Cumbersome to explicitly provide defaults for each getProperty call
+-Can create Properties with defaults
+    *Pass default Properties to constructor
+    *Default properties take precedent over default vale passed to getProperty
+
+Including Default Properties in Package
+-Default property file can be part of package
+    *Create .properties file at development time
+    *Build process includes file in package
+-Can load file from package
+    *Takes advantage of Java resource system
+    *Use getResourceAsStream method, accessed through any class in package
+        ClassName.class, this.getClass()
+
+
+
