@@ -14,3 +14,53 @@ Command-line Arguments
 -Arguments passed as a String array
     *Received by app's main function
     *Each argument is a separate element, separated by OS's whitespace
+
+*When we provide a multiple part cmd line input for application like input file multiple part.txt file name we can
+wrap this input with quote to use as a single value in args array like "input file multiple part.txt"
+
+Managing Persistable key/Value Pairs
+-Apps often need persistable key/value pairs
+    -Store app configuration information
+    -Track simple aspects of app state
+    -Track user preferences
+
+-Need an easy way to manage key/value pairs
+    -Ste/retrieve values
+    -Store/load between app executions
+    -Provide default value when not set
+
+We can use java.util.Properties class to get this functionality
+
+Properties Class
+-Inherits from HashTable, HashTable is the predecessor of Hashmap, Hashmap implemented later, Hashtable does not
+permits null values
+-Keys and values are Strings
+
+Working with properties
+-setProperty method
+    *sets the current value for a key
+    *creates or updates key as needed
+-getProperty
+    *returns the current value for the key
+    *return null if not found and no default
+
+Store and Load Property Values
+-Properties can be persisted
+    *Can be written to and read from a stream
+    *Can optionally include comments
+    *Support 2 formats:Simple text and XML
+
+Properties Persisted as Simple Text
+-Persist as simple text
+    -Use store & load methods
+    *Supports OutputStream/InputStream
+    *Supports Writer/Reader
+    -Normally name file with .properties suffix
+
+-One key/value pair written per line
+    -Key/value normally separated by = or :
+        *Whitespace surrounding =,: ignored
+        *Whitespaces acts as key/value separator if occurs without = or :
+        *Can escape whitespace, =, or : with \
+    -Start a line with # or ! for comments
+    -Blank lines ignored
