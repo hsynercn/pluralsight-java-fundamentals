@@ -64,3 +64,12 @@ Properties Persisted as Simple Text
         *Can escape whitespace, =, or : with \
     -Start a line with # or ! for comments
     -Blank lines ignored
+
+Properties Persisted as XML
+-Persist as XML
+    *Use storeToXML and loadFromXML methods
+    *Name with .xml suffix
+-One key/value pair per XML element
+    *Stored as element named entry, key stored as attribute, value stored as element value
+    *Use comment element for comments
+
