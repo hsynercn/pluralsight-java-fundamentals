@@ -1,9 +1,9 @@
 Overview
     -The role of collections
-    -Collections adn type safety
+    -Collections add type safety
     -Common collection methods
     -Collections and entry equality
-    -New collection methods in Java 9
+    -New collection methods in Java 8
     -Converting between collections and arrays
     -Common collections interface and classes
     -Sorting behavior
@@ -169,7 +169,7 @@ SUMMARY
 Collections hold and organize values
 -Iterable
 -Tend to dynamically size
--CAn provide optimization or sophistication
+-Can provide optimization or sophistication
 
 Collections can be type restricted
 -Uses Java generics to specify type

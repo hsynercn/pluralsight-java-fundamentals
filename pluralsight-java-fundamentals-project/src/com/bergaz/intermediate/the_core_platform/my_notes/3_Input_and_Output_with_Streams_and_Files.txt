@@ -7,7 +7,7 @@ Section overview:
     -File system
     -Creating and working with zip file system
 
-Stream is and ordered sequence of data
+Stream is an ordered sequence of data
     -Provides a common i/o model
     -Hides details of source
     -Stream types are unidirectional
@@ -36,7 +36,7 @@ Common Input/OutputStream Derived Classes
 InputStream                             Reader
 -ByteArrayInputStream                   -CharArrayReader
 -PipedInputStream                       -StringReader
-    >(better produces-consumer cases)   -PipedReader
+    >(better producer-consumer cases)   -PipedReader
 -FileInputStream                        -InputStreamReader > FileReader
 
 OutputStream                            Writer

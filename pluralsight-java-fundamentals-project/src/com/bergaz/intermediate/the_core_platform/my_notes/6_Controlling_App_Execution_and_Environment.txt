@@ -1,0 +1,16 @@
+Overview
+-Command-line arguments
+-Managing app and user properties
+-Persisting and restoring properties
+-Deploying property defaults in a package
+-Default class loading behavior
+-Working with class paths
+-Execution environment information
+
+Command-line Arguments
+-Can pass info to app on command line, easiest way to pass startup info
+    *Target of app processing, input/output files, URLs, etc.
+    *Behavior options
+-Arguments passed as a String array
+    *Received by app's main function
+    *Each argument is a separate element, separated by OS's whitespace
