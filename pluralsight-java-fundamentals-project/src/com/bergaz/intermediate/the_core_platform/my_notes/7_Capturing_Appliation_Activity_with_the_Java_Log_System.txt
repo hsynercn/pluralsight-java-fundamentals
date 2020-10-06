@@ -1,0 +1,40 @@
+Overview
+-Log system management
+-Making log calls
+-Log levels
+-Types of log methods
+-Creating and adding log components
+-Built-in handlers and formatters
+-Log configuration file
+-Making the most of the log system, logger naming and hierarchy
+
+Log System
+-We need a way to capture app activity
+    *Record errors
+    *Track usage info
+    *Debug
+
+The required level of detail can vary
+-Sometimes we need lots of details
+    *Newly deployed app
+    *Too many error
+-Generally we need less detail
+    *App becomes mature
+-Java provides a built-in solution
+    *java.util.logging
+
+Log System Management
+-Log system is centrally managed
+    *There is one app-wide log manager
+    *Manages log system configuration
+    *Manages objects that do the actual logging
+-Represented by LogManager class
+    *One global instance
+    *Access with static method LogManager.getLogManager
+
+Making Log Calls
+-Logger class, provides logging methods
+-We access Logger instances with LogManager
+    -getLogger method
+    -Each instance named
+    -A global logger instance i available, we can get it by Logger class' static field GLOBAL_LOGGER_NAME
