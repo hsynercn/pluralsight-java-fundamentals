@@ -39,3 +39,25 @@ Making Log Calls
     -Each instance named
     -A global logger instance is available, we can get it by Logger class' static field GLOBAL_LOGGER_NAME
 
+Logging Levels
+-Levels control logging detail
+    *Each log entry is associated with a level, included with each log call
+    *Each logger has a capture level, use setLevel method, ignores below levels
+-Each level has a numeric value
+    *7 basic log levels
+    *2 special levels
+    *can define custom levels
+
+LEVELS
+Level       Numeric Value       Description
+OFF         Integer.MAX_VALUE   Logger capture nothing
+SEVERE      1000                Serious failure
+WARNING     900                 Potential problem
+INFO        800                 General info
+CONFIG      700                 Configuration info
+FINE        500                 General developer info
+FINER       400                 Detailed developer info
+FINEST      300                 Specialized developer info
+ALL         Integer.MIN_VALUE   Logger capture everything
+
+
