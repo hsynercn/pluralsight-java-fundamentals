@@ -25,7 +25,7 @@ Managing Persistable key/Value Pairs
     -Track user preferences
 
 -Need an easy way to manage key/value pairs
-    -Ste/retrieve values
+    -Set/retrieve values
     -Store/load between app executions
     -Provide default value when not set
 

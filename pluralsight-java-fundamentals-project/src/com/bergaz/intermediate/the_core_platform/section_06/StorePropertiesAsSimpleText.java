@@ -11,10 +11,10 @@ public class StorePropertiesAsSimpleText {
         properties.setProperty("name", "Hilly Billy");
         properties.setProperty("account", "123456789");
 
-        String fileLOcation = LocalFilePath.getPath() + "/test.properties";
+        String fileLocation = LocalFilePath.getPath() + "/test.properties";
 
         try {
-            properties.store(Files.newBufferedWriter(Paths.get(fileLOcation)), "This is my comment, whats up");
+            properties.store(Files.newBufferedWriter(Paths.get(fileLocation)), "This is my comment, whats up");
         } catch (IOException e) {
             e.printStackTrace();
         }
