@@ -37,4 +37,5 @@ Making Log Calls
 -We access Logger instances with LogManager
     -getLogger method
     -Each instance named
-    -A global logger instance i available, we can get it by Logger class' static field GLOBAL_LOGGER_NAME
+    -A global logger instance is available, we can get it by Logger class' static field GLOBAL_LOGGER_NAME
+
