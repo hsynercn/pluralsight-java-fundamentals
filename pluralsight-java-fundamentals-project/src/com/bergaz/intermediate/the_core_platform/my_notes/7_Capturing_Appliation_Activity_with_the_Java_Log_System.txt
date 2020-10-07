@@ -94,3 +94,14 @@ Parameterized Message Methods
 -entering, exiting
     *values appear after default message, space separated
 -values always passed as objects
+
+SELF NOTE FOR DEFAULT CONSOLE HANDLER:
+When configuring the global logger setting the level is not enough to see console output, to use logger level
+effectively we can override default console handler with a newly constructed console handler, even with this when we
+use global logger we can duplicated prints for greater levels than FINE
+
+Log System Divided Into Components:Provide flexibility
+*Logger:accepts app calls
+*Handler:publishes logging info, a logger can have multiple
+*Formatter:formats log info for publication, each handler has one formatter
+
