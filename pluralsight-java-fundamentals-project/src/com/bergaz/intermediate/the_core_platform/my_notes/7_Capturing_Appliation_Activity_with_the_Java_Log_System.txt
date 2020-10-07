@@ -139,3 +139,35 @@ Value   Meaning
 %t      Temp directory
 %h      User's home directory
 %g      Rotating log generation
+
+
+Build-in Formatters
+-Java provides two built-in Formatters
+    *Both inherit directly form Formatter
+-XML Formatter
+    *Formats content as XML
+    *Root element named log
+    *Each entry in element named record
+-SimpleFormatter
+    *Formats content as simple text
+    *Format is customizable
+
+SimpleFormatter format:
+
+String.format(format, date, source, logger, level, message, thrown);
+Default: %1$tb %1$td, %1$tY %1$tl:%1$tM:%1$tS %1$Tp %2$s %n %4$s: %5$s%6$s%n
+
+We can configure format by cmd parameter:
+C:\>java -D java.util.logging.SimpleFormatter.format=%5$s,%2$s,%4$s%n
+
+Log Configuration File
+-Configuration info can be set in a file
+    *Follows standard properties file format
+    *Can replace code-based config
+    *Can be used with code-based config
+-Set file name with a system property
+    *java.util.logging.config.file
+    *Pass value with Java -D option
+
+Log Config File Sample Cmd:
+C:\>java -D java.util.logging.SimpleFormatter.format=%5$s,%2$s,%4$s%n com.bergaz.section_07.SimpleLogMethod
