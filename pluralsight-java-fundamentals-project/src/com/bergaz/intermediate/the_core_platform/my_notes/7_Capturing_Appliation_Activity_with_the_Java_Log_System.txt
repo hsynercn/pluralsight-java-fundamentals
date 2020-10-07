@@ -105,3 +105,37 @@ Log System Divided Into Components:Provide flexibility
 *Handler:publishes logging info, a logger can have multiple
 *Formatter:formats log info for publication, each handler has one formatter
 
+ APP                    Formatter (String)
+  |                     A           |
+  V                     |           V
+Logger  -> (LogRecord) Handler      String -> Outside World
+Logger  -> (LogRecord) handler      String -> Outside World
+                        |           A
+                        V           |
+                        Formatter (String)
+
+*Logger filters the log records via set log level, also we can set different log level for each Handler
+
+Creating/Adding Log Component
+-Creating a Logger
+    *Use Logger.getLogger, named with a string
+-Adding a Handler
+    *Java provides built-in Handlers, can add with Logger.addHandler
+-Adding a Formatter
+    *Java provides built-in Formatters, add with Handler.setFormatter
+
+Built-in Handlers
+    -Common Handlers
+    *ConsoleHandler
+    *StreamHandler
+    *SocketHandler
+    *FileHandler
+
+File handler substitution:
+    Supports a substitution-based file naming, reduces issues related to system and configuration differences
+
+Value   Meaning
+/       Platform slash\backslash
+%t      Temp directory
+%h      User's home directory
+%g      Rotating log generation
