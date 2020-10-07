@@ -60,4 +60,37 @@ FINER       400                 Detailed developer info
 FINEST      300                 Specialized developer info
 ALL         Integer.MIN_VALUE   Logger capture everything
 
+Types of Log Methods
+-Simple log method
+-Level convenience methods
+-Precise log method
+-Precise convenience methods
+-Parameterized message methods
 
+Simple log:
+logger.log(Level.SEVERE, "This is a severe log message");
+    Oct 07, 2020 8:33:46 PM com.bergaz.intermediate.the_core_platform.section_07.SimpleLogMethod logThisMethod
+    SEVERE: This is a severe log message
+
+Level convenience method:
+logger.severe("severe");
+Oct 07, 2020 8:42:07 PM com.bergaz.intermediate.the_core_platform.section_07.LevelConvenienceMethod main
+SEVERE: severe
+
+Precise log method:Sometimes standard log methods get it wrong
+logger.logp(Level.SEVERE, "this.is.some.shitty.class", "someMethod", "it fcked up");
+Oct 07, 2020 8:50:46 PM this.is.some.shitty.class someMethod
+SEVERE: it fcked up
+
+Precise convenience methods:Simplify logging common method actions, logs a predefined message
+*Always logged as Level.FINER
+Method      Message
+entering    ENTRY
+exiting     RETURN
+
+Parameterized Message Methods
+-log, logp
+    *Parameter substation indicators explicitly appear within message, uses simple positional substituton
+-entering, exiting
+    *values appear after default message, space separated
+-values always passed as objects
