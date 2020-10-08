@@ -44,3 +44,26 @@ The Case for Multithreading
 -Why does any of this matter
     *Can reduce perceived execution times, less wall-clock time passes
 
+The Move to Multithreading
+-Multithreading is an explicit choice
+    *Must break problems into parts
+-Java provides different levels of abstraction
+    *Support very direct handling:manual creation and coordination
+    *Support higher level handling:simplified creation and coordination
+
+Java Thread Foundation
+-Limited threading abstraction
+    *Very close to standard OS behavior
+    *Each thread started for a specific task, terminates at the end of task
+-Requires explicit management
+    *Responsible to manage coordination
+-Exceptions tied to thread
+    *Each thread must handle own exception
+
+1-Runnable Interface
+    *Represents a task to be run on a thread
+    *Only member is the run method
+2-Thread class
+    *Represents a thread of execution
+    *Can interact with and effect thread state
+    *Begin execution with start method

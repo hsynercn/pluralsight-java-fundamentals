@@ -5,7 +5,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.*;
 
-public class MyAdder {
+public class MyAdder implements Runnable{
     private String inFile, outFile;
 
     public MyAdder(String inFile, String outFile) {
@@ -25,5 +25,10 @@ public class MyAdder {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void run() {
+        doAdd();
     }
 }
