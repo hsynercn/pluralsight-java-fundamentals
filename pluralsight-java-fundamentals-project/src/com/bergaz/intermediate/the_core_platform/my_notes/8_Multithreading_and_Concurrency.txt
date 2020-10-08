@@ -1,0 +1,37 @@
+Overview
+-Single threading vs multithreading
+-Threading foundation types
+-Thread pools
+-Concurrency issues
+-Mutual thread synchronization
+-Concurrency related types and packages
+
+Course's Threading and Concurrency Coverage
+-New to threading:Provides building blocks for threading and concurrency
+-Already knows threading:Apply your knowledge in Java
+
+A Quick Look at the Basics
+-Process
+    *Instance of a program/application
+    *Has resources such as memory, etc.
+    *Has at least one thread
+-Thread
+    *Sequence of programmed instructions
+    *The thing that executes a program's code
+    *Utilizes process resources
+
+
+                            Concurrency
+______                          |
+      |-----Thread0>>>>>>>>>>>>>|>>>>>>>>>>>>>>>>>>>>>
+      |                         |
+      |---------Thread1>>>>>>>>>|>>>
+Memory|                         |
+      |----------------Thread2>>|>>>>>>>>>>>>
+      |    \                    |
+      |     \-------Thread3>>>>>|>>>>
+______|                         |
+
+          Time------------------------------------------->
+
+*To prevent resource access error we need to coordinate the threads while accessing resources
