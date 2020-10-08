@@ -35,3 +35,12 @@ ______|                         |
           Time------------------------------------------->
 
 *To prevent resource access error we need to coordinate the threads while accessing resources
+
+The Case for Multithreading
+-Can enable more complete CPU use
+    *Thread often wait on non-CPU tasks, interacting with storage, networks, etc.
+    *Most computers have multiple CPU cores, allows things run in parallel
+
+-Why does any of this matter
+    *Can reduce perceived execution times, less wall-clock time passes
+
