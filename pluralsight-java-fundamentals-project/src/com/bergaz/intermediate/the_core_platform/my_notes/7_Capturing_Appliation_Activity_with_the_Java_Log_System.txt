@@ -171,3 +171,35 @@ Log Configuration File
 
 Log Config File Sample Cmd:
 C:\>java -D java.util.logging.SimpleFormatter.format=%5$s,%2$s,%4$s%n com.bergaz.section_07.SimpleLogMethod
+
+Logger Naming
+-Naming implies a parent-child relationship, LogManager links Loggers in a hierarchy based on each Logger's name
+-Logger Naming:Should follow hierarchical naming
+    *Generally tied to a class' full name
+
+SUMMARY
+-Log system ins centrally managed
+    *One app-wide manager, represented by LogManager class
+-Logger class:Represented each individual logger, provides log methods
+-Levels indicate relative importance of entry
+    *Each entry recorded with a level
+    *Each Logger has a capture level
+
+-Logger rely on other components
+    -Handlers:Publish log info, a logger can have multiple handlers
+    -Formatters:Format log info for publication, each Handler has 1 formatter
+
+-Log configuration
+    *Can be handled in code
+    *Can be handled with a file:File name passed with system property
+
+-Loggers are hierarchical
+    *Hierarchy established through naming
+    *Loggers can pass log entries to parent
+    *Loggers can inherit parent log level
+
+-Getting the most from the log system
+    *Manage setup primarily on parent loggers
+    *Make log class primarily on child loggers
+
+
