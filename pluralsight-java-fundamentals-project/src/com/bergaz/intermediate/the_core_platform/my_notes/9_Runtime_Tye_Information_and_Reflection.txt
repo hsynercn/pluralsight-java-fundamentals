@@ -1,0 +1,48 @@
+Overview
+-Reflection overview
+-Java type representation
+-Accessing a type's Class instance
+-Accessing information about a type
+-Accessing type member information
+-Interacting with object instances
+-Creating type instances
+-Dynamic type loading
+
+Reflection
+-Core capabilities of reflection
+    *Examine types at runtime
+    *Dynamically execute and access members
+
+The Need for Reflection
+-Apps do not always control types used
+    *Common in advanced app designs
+    *Common in tool and frameworks
+-Often dynamically load types
+    *Type is not known at compile time
+    *There is no type-specific source code
+-Requires special runtime type handling
+    *Examine types at runtime
+    *Dynamically execute and access members
+
+Runtime Examination
+-Can fully examine objects at runtime
+    *Type, Base types
+    *Interfaces implemented
+    *Members
+-Variety of uses
+    *Determine a type's capabilities
+    *Tools development
+        -Type inspector/browser
+        -Schema generation
+
+Dynamic Execution and Access
+-Can access full capability of type
+    *Construct instances
+    *Access fields
+    *Call methods
+-Variety of uses
+    *Configurable application designs, specific tasks externally controlled
+    *Inversion of control application designs
+        -App provides fundamental behavior
+        -Classes added to specialize behavior
+
