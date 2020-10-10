@@ -118,3 +118,37 @@ Threading Relationship Types
             Blocks until task completed
             Returns Callable interface result
             Throws Callable interface exception
+
+Concurrency Issues
+-The challenge of concurrency
+    *Threads sometimes share resources
+    *No problems if resources only read
+    *Changes must be coordinated
+-Failure to coordinate can create problems
+    *Receive wrong results
+    *Crash program
+
+Atomic Operations
+-When we change a value, for example an integer incrementation at a class there are several steps for this operation
+read value>perform addition>write result back to memory in this flow another thread can take the control of the resource
+this may lead a incorrect result
+-To prevent this flow at all we can design incrementation as an atomic operation
+
+Coordinating Method Access
+-Synchronized methods
+    *Coordinate thread access to methods
+    *Use synchronized method modifier, class can have as many as needed
+-Synchronization managed per instance
+    *No more than one thread can be in any synchronized method at a time
+
+Using Synchronized Methods
+-When to use synchronized
+    *Protect modification by multiple threads
+    *Reading value that might be modified by another thread
+-Why not always use synchronize methods
+    *Has a significant overhead
+    *Use only in multithreading scenarios
+-Constructors are never synchronized
+    *A given object instance always created on exactly one thread
+
+
