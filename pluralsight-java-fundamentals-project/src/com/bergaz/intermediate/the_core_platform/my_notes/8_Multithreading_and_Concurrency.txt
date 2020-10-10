@@ -151,4 +151,13 @@ Using Synchronized Methods
 -Constructors are never synchronized
     *A given object instance always created on exactly one thread
 
+Manual Synchronization
+-Synchronized methods
+    *Automated concurrency management
+    *Used lock of current object instance
+-All Java objects have a lock
+    -Can manually acquire that lock
+    *Use synchronized statement block
+    *Available to any code with a reference
 
+*We can lock an object explicitly with a synchronized(object) block
