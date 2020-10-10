@@ -67,3 +67,54 @@ Java Thread Foundation
     *Represents a thread of execution
     *Can interact with and effect thread state
     *Begin execution with start method
+
+Thread Management Details
+-Value of the Thread class
+    *Allows direct control over thread startup, shutdown, coordination
+-Challenge of the Thread class
+    *Responsible to efficient manage thread startup, shutdown, coordination
+    *Easily misused
+
+Abstracting Thread Management with Thread Pools
+-Java offers thread pools
+    *Creates a queue for tasks
+    *Assigns tasks into a pool of threads
+    *Handles details of managing threads
+
+Thread Pools Types
+-ExecutorService interface
+    *Models thread pool behavior
+    *Can submit tasks
+    *Request and wait for pool shutdown
+-Executor class
+    *Methods for creating thread pools
+    Dynamically sized pools
+    Size limited pools
+    Pools that schedule tasks for later
+
+Creating a Closer Relationship Between Thread Tasks
+-Multithreading is not always loosely coupled
+    *Caller may need results from worker
+    *May need to know if task succeeded
+
+Thread Result Manual Handling
+    -When we initiate a thread we can check the result manually, we can store result at a memory location and we can
+    check the result from amin thread
+Thread Exception Manual Handling
+    -The same logic applies, we can get the exception info from memory from main thread
+
+*Manual handling requires lots of effort, it is a high maintenance method
+We desire a simpler mechanism to get result and exception data
+
+Threading Relationship Types
+    -Callable interface
+        *Represents a task to be run on a thread
+        ***Can return result
+        ***Can throw exceptions
+        *Only member is the call method
+    -Future interface
+        *Represents results a thread task:Returned by ExecutorService.submit
+        *The key method is get
+            Blocks until task completed
+            Returns Callable interface result
+            Throws Callable interface exception

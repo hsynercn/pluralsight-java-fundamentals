@@ -1,10 +1,12 @@
 package com.bergaz.intermediate.the_core_platform.section_08;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
-public class MultiThreadAdding {
-    public static void main(String[] args) {
+public class ThreadPoolAdder {
+    public static void main() {
         String[] inFiles = {
                 "in_integers_1.txt", "in_integers_2.txt",
                 "in_integers_3.txt", "in_integers_4.txt",
@@ -12,21 +14,20 @@ public class MultiThreadAdding {
         String inFolder = LocalFilePath.getPath() + "/in_files/";
         String outFolder =  LocalFilePath.getPath() + "/out_files/";
 
-        ArrayList<Thread> threadArrayList = new ArrayList<>();
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
 
         Arrays.asList(inFiles).forEach(inFile -> {
             MyAdderRunnable myAdderRunnable = new MyAdderRunnable(inFolder + inFile, outFolder + "out_" + inFile);
-            Thread thread = new Thread(myAdderRunnable);
-            thread.start();
-            threadArrayList.add(thread);
+            executorService.submit(myAdderRunnable);
         });
 
-        threadArrayList.forEach(thread -> {
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+        try {
+            executorService.shutdown();
+            executorService.awaitTermination(60, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

@@ -5,10 +5,10 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.*;
 
-public class MyAdder implements Runnable{
+public class MyAdderRunnable implements Runnable{
     private String inFile, outFile;
 
-    public MyAdder(String inFile, String outFile) {
+    public MyAdderRunnable(String inFile, String outFile) {
         this.inFile = inFile;
         this.outFile = outFile;
     }

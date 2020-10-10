@@ -12,8 +12,8 @@ public class SingleThreadAdding {
         String outFolder =  LocalFilePath.getPath() + "/out_files/";
 
         Arrays.asList(inFiles).forEach(inFile -> {
-            MyAdder myAdder = new MyAdder(inFolder + inFile, outFolder + "out_" + inFile);
-            myAdder.doAdd();
+            MyAdderRunnable myAdderRunnable = new MyAdderRunnable(inFolder + inFile, outFolder + "out_" + inFile);
+            myAdderRunnable.doAdd();
         });
     }
 }
