@@ -161,3 +161,10 @@ Manual Synchronization
     *Available to any code with a reference
 
 *We can lock an object explicitly with a synchronized(object) block
+
+Why USe Synchronized Statement Blocks
+-Synchronized blocks provide flexibility
+    *Enables use of non-thread safe classes
+    *Can protect complex blocks of code
+    *Sometimes synchronized methods just are not enough
+
