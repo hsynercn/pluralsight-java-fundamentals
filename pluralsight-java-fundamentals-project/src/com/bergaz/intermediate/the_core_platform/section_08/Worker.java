@@ -5,9 +5,9 @@ import java.util.logging.Logger;
 
 public class Worker implements Runnable{
     private Logger logger = LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME);
-    private BankAccount account;
+    private IBankAccount account;
 
-    public Worker(BankAccount account) {
+    public Worker(IBankAccount account) {
         this.account = account;
     }
 
