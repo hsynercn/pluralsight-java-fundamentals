@@ -168,3 +168,65 @@ Why USe Synchronized Statement Blocks
     *Can protect complex blocks of code
     *Sometimes synchronized methods just are not enough
 
+Collections and Concurrency
+-Concurrency safe collection access
+-Blocking collections
+
+Synchronized collections wrappers
+-Most collections are not thread safe
+-Can create thread safe wrappers
+    *Use Collection class static methods
+        -synchronizedList
+        -synchronizedMap
+        -Etc.
+    *Wrapper is a thread safe proxy
+        -Actual work occurs in original object
+
+Blocking Content
+-Coordinating producers abd consumers
+    *One or more threads produce content
+    *One or more other threads consume
+        -Most wait for content if not available
+
+Java provides blocking queues
+-Attempt to read blocks if empty
+    *Wakes up when content available
+-Examples
+    *LinkedBlockingQueue
+    *PriorityBlockingQueue
+    *Etc.
+
+SUMMARY
+
+Thread class
+-Represents a thread of execution
+-Similar to most OS thread representations
+-Responsible to handle most details
+
+Runnable Interface
+-Represents a task to run on a thread
+-Simply override run method
+-Can't return result
+-Exceptions responsibility of thread
+
+Executor Service
+-Abstracts thread management details
+-Can interact with thread pools
+
+Callable Interface
+-Represents a task to be run on a thread
+-Can return results
+-Can throw exceptions
+
+Future Interface
+-Represents results of a thread
+-Can access result from task
+-Can throw exceptions form thread task
+
+All Java objects have a lock
+-Can access with synchronized methods
+    *Acquires lock of target instance of call
+    *Only one active at a time on an object
+-Can manually acquire lock
+    *Use synchronized statement block
+    *Available to any code referencing object
