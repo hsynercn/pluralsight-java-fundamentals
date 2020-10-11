@@ -99,3 +99,13 @@ Accessing Type Information
     *Modifiers
     *Members
 
+Type Access Modifiers
+-Retrieving type access modifiers
+    *Use getModifiers
+    *Returned as a single int value, each modifier is a separate bit
+-Use Modifier class to interpret modifiers
+    *Provides static fields for bit comparisons, requires use of bitwise and/or
+    *Provides static helper methods, each checks for specific modifier
+
+
+
