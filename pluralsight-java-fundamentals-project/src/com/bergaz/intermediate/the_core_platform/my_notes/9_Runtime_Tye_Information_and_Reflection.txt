@@ -90,3 +90,12 @@ Accessing a Type's Class Instance
     *Call Class.forName static method, pass fully qualified type name
 -From type literal
 
+From type literal, type reference and string name all of them return exact same Class class instance
+
+Accessing Type Information
+-Every aspect of a type is knowable
+    *Superclass
+    *Implemented interfaces
+    *Modifiers
+    *Members
+
