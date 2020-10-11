@@ -118,12 +118,26 @@ Types to Describe Type Members
 |*Public, protected & private  |*Public only                       |
 |							   |                                   |
 +------------------------------+-----------------------------------+
-	getDeclaredFileds				getFields
+	getDeclaredFields				getFields
 	gecDeclaredMethods				getMethods
-	getDeclaredConstrcutors			getConstructors
+	getDeclaredConstructor  		getConstructors
 
 *important: We can't get parent class' constructors from getConstructors method we only get public constructors
-getDeclaredConstrcutors returns all constructors public, protected and private
+getDeclaredConstructors returns all constructors public, protected and private
+
+More About Members
+-Can request individual member by signature
+    *getField: Pass name
+    *getMethod: Pass name plus parameter types
+    *getConstructor: Pass parameter types
+-Members have access modifiers
+    *Use getModifiers
+    *Interpret with Modifier class
+
+Interacting with Object Instances
+-Interacting with object instances
+    *Reflection not limited to describing types
+    *Can access and invoke members
 
 
 
