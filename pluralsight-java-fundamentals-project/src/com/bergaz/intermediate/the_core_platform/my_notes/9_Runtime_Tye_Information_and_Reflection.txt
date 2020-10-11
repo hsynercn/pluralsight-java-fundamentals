@@ -107,5 +107,23 @@ Type Access Modifiers
     *Provides static fields for bit comparisons, requires use of bitwise and/or
     *Provides static helper methods, each checks for specific modifier
 
+Types to Describe Type Members
+-Field: Name, Type
+-Method: Name, Return Type, Parameter Types
+-Constructor: Name, Parameter Types
+
++------------------------------+-----------------------------------+
+| Type's declared members only | Type's declared inherited members |
+|							   |                                   |
+|*Public, protected & private  |*Public only                       |
+|							   |                                   |
++------------------------------+-----------------------------------+
+	getDeclaredFileds				getFields
+	gecDeclaredMethods				getMethods
+	getDeclaredConstrcutors			getConstructors
+
+*important: We can't get parent class' constructors from getConstructors method we only get public constructors
+getDeclaredConstrcutors returns all constructors public, protected and private
+
 
 
