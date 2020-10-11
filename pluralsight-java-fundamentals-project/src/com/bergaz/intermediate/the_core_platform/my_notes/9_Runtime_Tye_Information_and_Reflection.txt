@@ -46,3 +46,47 @@ Dynamic Execution and Access
         -App provides fundamental behavior
         -Classes added to specialize behavior
 
+Type as a Type
+-Type is the foundation of any app solution
+    *We use types to model BUSINESS and TECH issues
+-Java uses types to model type issues
+    *Fundamental type is the Class class
+    *Each type has a Class instance
+    *Describes the type in detail
+
+Class Representation
++-------------------------------------+					+--------+
+| simpleName                          |<----------------|id      |
+| +-----------+                       |         		|+----+  |
+| |BankAccount|                       |                 ||1234|  |
+| +-----------+                       |                 |+----+  |
+|                                     |                 |balance |
+| fields                              |		            |+----+  |
+| +--+-------+                        |                 || 0  |  |
+| |id|balance|                        |                 |+----+  |
+| +--+-------+                        |                 +--------+
+| constructors                        |
+| +-----------+-----------+           |					+--------+
+| |BankAccount|BankAccount|           |<----------------|id      |
+| +-----------+-----------+           |                 |+----+  |
+| methods                             |                 ||1234|  |
+| +-----+----------++------+--------+ |                 |+----+  |
+| |getId|getBalance|deposit|withdraw| |                 |balance |
+| +-----+----------++------+--------+ |                 |+----+  |
++-------------------------------------+                 || 500|  |
+                                                        |+----+  |
+                                                        +--------+
+
+
+*Instance of Call class acts as a mold
+
+BankAccount acct1 = new BankAccount("1234");
+BankAccount acct2 = new BankAccount("5678", 500);
+
+Accessing a Type's Class Instance
+-From a type reference
+    *Call getClass method
+-From string name
+    *Call Class.forName static method, pass fully qualified type name
+-From type literal
+
