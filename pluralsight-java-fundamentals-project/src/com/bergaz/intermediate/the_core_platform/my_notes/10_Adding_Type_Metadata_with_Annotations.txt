@@ -1,0 +1,39 @@
+Overview
+-The need for type metadata
+-Using annotations
+-Declaring custom annotations
+-Accessing annotations
+-Annotation target and retention
+-Simplifying element setting
+-Annotation element types
+-Class-cross reference
+
+The Need to Express Context and Intent
+-Programs dont stand alone
+    *They fir into a larger picture
+    *Incorporates developer's assumption
+        -About the type system
+        -About the toolset
+        -About the execution environment
+
+*Programs incorporate context and intent
+context: we expect into run in
+intent: out intentions the behavior in that context
+
+-Type system solves much of this issue
+-But standard type system isn't enough
+
+Type is able to express intent:
+*For example when we implement a run() method we add Runnable implementation to express out intent
+
+Type is unable to express intent:
+*For example when we want to override toString method we can use @Override annotation for our intent
+
+The Need to Express Context and Intent
+-We need a way to extent the type system
+    *We often try to supplement manually
+    -Code comments
+    -Documentation
+    -Just is not enough
+    *We need a structured solution
+    -Allow tools to act on context and intent
