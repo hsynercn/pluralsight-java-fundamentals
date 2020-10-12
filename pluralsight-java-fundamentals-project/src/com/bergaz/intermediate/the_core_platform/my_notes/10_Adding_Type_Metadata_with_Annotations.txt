@@ -37,3 +37,38 @@ The Need to Express Context and Intent
     -Just is not enough
     *We need a structured solution
     -Allow tools to act on context and intent
+
+Using Annotations
+-Annotations
+    *Special types that act as metadata, applied to a specific target
+    *Have no direct impact on target, do not change target's behavior
+
+-Annotations must be interpreted
+    *Tools
+    *Execution environments
+    *Any program
+
+-Annotations in code
+    *Name always preceded by @ when used
+    *Places directly before target
+    *Allowable targets vary with annotation
+
+Annotation: @Override
+Compiler looks for methods marked with this annotation, verifies there is a method with matching signature that can
+be overridden
+
+Annotations And the Core Java Platform:
+-Types to create annotations
+-Has only a few annotations
+
+Widely used by other tools/environments
+-Java EE
+-XML processors such as JAXP
+-Our customized annotations
+
+Common Java Core Platform Annotations
+-Most affect compilation
+    *Override
+    *Deprecated
+    *SuppressWarnings
+
