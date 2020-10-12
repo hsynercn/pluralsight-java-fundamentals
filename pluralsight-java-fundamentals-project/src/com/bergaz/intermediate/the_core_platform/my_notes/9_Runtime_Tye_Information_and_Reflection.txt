@@ -139,5 +139,14 @@ Interacting with Object Instances
     *Reflection not limited to describing types
     *Can access and invoke members
 
+Instance Creation with Reflection
+-Objects can be created with reflection
+-Constructors can be executed
+    *Use Constructor newInstance method
+    *Returns a reference to new instance
+-Simplified handling for no-arg constructor
+    *No need to access constructor directly
+    *Use Class newInstance method
+
 
 
