@@ -148,5 +148,30 @@ Instance Creation with Reflection
     *No need to access constructor directly
     *Use Class newInstance method
 
+Summary
+-Every type represented by instance of Class
+    *Each type has exactly one instance
+-Accessing type's Class instance
+    *From type reference: call getClass
+    *From string name: call Class.forName
+    *From type literal: use typename.class
+
+-All aspects of types knowable
+    *Superclass and interfaces
+    *Fields, methods, and constructors
+    *Access modifiers
+-Working with modifiers
+    *Returned as an int value
+    *Use Modifier class to interpret, provides static fields for bit values, provides helper methods
+
+-Interacting with object instances
+    *Reflection not limited to describing types
+    *Can access and invoke members
+-Objects can be created with reflection
+    *Constructors can be executed, use Constructor newInstance method
+    *Simplified handling for no-arg constructor, use Class newInstance method
+
+
+
 
 
