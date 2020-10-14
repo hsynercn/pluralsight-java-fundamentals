@@ -102,3 +102,15 @@ Accessing Annotations
 Annotations can specify availability
 -Part of annotation declaration
 -Indicated with Retention annotation
+
+RetentionPolicy Values
+-SOURCE:    Exists only in source file, discarded by compiler
+-CLASS:     Compiled into class file, discarded by runtime
+-RUNTIME:   Loaded into runtime, accessible with reflection
+
+Annotation Target
+-Annotation can narrow targets
+-Indicated with Target annotation, accepts ElementType value
+-Can support multiple targets, use array notation
+
+
