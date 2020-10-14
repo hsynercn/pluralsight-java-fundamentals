@@ -113,4 +113,51 @@ Annotation Target
 -Indicated with Target annotation, accepts ElementType value
 -Can support multiple targets, use array notation
 
+Simplifying Element Setting
+-Elements can be setup to simplify setting
+    *Handle common cases
+    *Element default values
+    *Element assignment shorthand
+
+Element Default Values
+-Elements can be declared with a default
+    *Use default keyword
+    *Can still explicitly set if desired
+
+Element Assignment Shorthand
+-Can exclude element name when setting
+    *Must be setting only one element
+    *Element name must be value
+
+Valid Annotation Element Types
+-Primitive types
+-String
+-Enum
+-Annotation
+-Class<?>
+-Can also be an array of any of these types
+
+SUMMARY
+-Programs incorporate context and intent
+    *Standard type system is not always enough
+    *Sometimes need metadata
+-Annotations act as metadata
+    *Annotations are special kind of interface
+    *Do not change target behavior
+    *Must be interpreted
+-Can declare custom annotations
+    *Similar to declaring interfaces
+    *Use interface keyword preceded by @
+    *Set retention to control availability
+    *Set target to narrow use
+-Annotations accessed with reflection
+    *Use getAnnotation method of target
+-Annotations can optionally have elements
+    *Associate values with annotation
+    *Declared as methods
+    *Setting is similar to fields
+    *Can associate a default value
+    *Element name "value" provides shorthand
+
+
 

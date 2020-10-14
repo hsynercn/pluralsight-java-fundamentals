@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface WorkHandler {
 
-    boolean useThreadPool();
+    boolean useThreadPool() default false;
 
 }
