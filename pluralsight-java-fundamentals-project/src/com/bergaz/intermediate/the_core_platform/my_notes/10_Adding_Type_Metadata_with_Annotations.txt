@@ -72,3 +72,33 @@ Common Java Core Platform Annotations
     *Deprecated
     *SuppressWarnings
 
+Declaring Annotations
+-We can create custom annotations
+    *Acts as custom meta data
+    *Provides same capabilities as built-in
+
+Declaring Annotations
+-Annotations are special kind of interface
+    *Usage is much more restricted, can't be explicitly implemented
+    *Implicitly extend Annotation interface
+    *Interface behavior not initially apparent
+
+Declaring annotations is similar to interfaces
+-Use interface keyword, preceded by an @ symbol
+-Declarations allow same modifiers
+-Declarations allowed in same places
+
+Annotations can optionally have elements
+-Associate values within annotation
+-Declared as methods
+-Setting is similar to fields
+
+Accessing Annotations
+-Annotations available through reflection
+    *Call getAnnotation on type/member
+-Returns reference to annotation interface
+    *Null if does not have annotation of requested type
+
+Annotations can specify availability
+-Part of annotation declaration
+-Indicated with Retention annotation
