@@ -46,3 +46,8 @@ Being Serializable
     *Others must implement Serializable
 
 *Key point is all members have to be serializable
+
+Class Version Incompatibility
+-When we serialize an object Java uses a calculated serialization id, Java uses same value for deserialization, if we
+change the class fields we also change the calculated id. Because of this change we can't load previous serialized
+classes

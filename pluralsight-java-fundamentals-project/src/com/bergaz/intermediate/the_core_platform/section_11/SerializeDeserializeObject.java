@@ -3,7 +3,7 @@ package com.bergaz.intermediate.the_core_platform.section_11;
 public class SerializeDeserializeObject {
     public static void main(String[] args) {
 
-        String outputFile = LocalFilePath.getPath() + "/BankAccount_output";
+        String outputFile = LocalFilePath.getPath() + "/BankAccount_output.dat";
 
         BankAccount bankAccount = new BankAccount("1234", 500);
         bankAccount.deposit(10);

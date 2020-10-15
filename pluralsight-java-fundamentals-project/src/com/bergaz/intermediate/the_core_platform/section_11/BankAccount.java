@@ -12,6 +12,9 @@ public class BankAccount implements Serializable {
      */
     private int balance = 0;
 
+    private char lastTxType;
+    private int lastTxAmount;
+
     public BankAccount(String id, int balance) {
         this.id = id;
         this.balance = balance;
@@ -31,9 +34,13 @@ public class BankAccount implements Serializable {
 
     public synchronized void deposit(int amount) {
         this.balance += amount;
+        lastTxType = 'd';
+        lastTxAmount = amount;
     }
 
     public synchronized void withdraw(int amount) {
         this.balance -= amount;
+        lastTxType = 'w';
+        lastTxAmount = amount;
     }
 }
