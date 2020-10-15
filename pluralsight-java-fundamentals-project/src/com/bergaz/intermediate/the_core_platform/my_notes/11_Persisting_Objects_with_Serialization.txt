@@ -51,3 +51,34 @@ Class Version Incompatibility
 -When we serialize an object Java uses a calculated serialization id, Java uses same value for deserialization, if we
 change the class fields we also change the calculated id. Because of this change we can't load previous serialized
 classes
+
+Creating Class Version Compatibility
+-Serial version unique identifier
+    *Indicates version compatibility
+    *Compatible versions have same value
+-Java can calculate at runtime
+    *Value affected by a number of factors
+        -Full type name
+        -Implemented interfaces
+        -Members
+    *Type content determines compatibility
+-Can specify as part of type definition
+    *Developer determines compatibility
+-Specifying serial version unique identifier
+    -Add serialVersionUID field
+    *Must be a long
+    *Must be static final
+    *Should be private
+-Calculated for initial version of type
+    *Use serialver utility
+-Use same value for future versions to maintain version compatibility
+
+-The serialver utility
+    *Perform same calculation as Java runtime
+    *Found in JDK bin folder
+    *IDEs often provide a plug-in
+-Using serialver utility
+    *Uses class' class file: Will search in local folder, can specify -classpath
+    *Can pass class name on command line: Display value to console
+    *Can use -show option: Opens a simple GUI
+

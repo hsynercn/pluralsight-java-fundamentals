@@ -3,6 +3,9 @@ package com.bergaz.intermediate.the_core_platform.section_11;
 import java.io.Serializable;
 
 public class BankAccount implements Serializable {
+
+    private static final long serialVersionUID = -5185492362356713418L;
+
     /**
      * String type is serializable
      */
