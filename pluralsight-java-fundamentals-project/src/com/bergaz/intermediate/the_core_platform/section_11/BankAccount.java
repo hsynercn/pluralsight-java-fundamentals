@@ -1,5 +1,8 @@
 package com.bergaz.intermediate.the_core_platform.section_11;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class BankAccount implements Serializable {
@@ -9,7 +12,7 @@ public class BankAccount implements Serializable {
     /**
      * String type is serializable
      */
-    private final String id;
+    private String id;
     /**
      * All primitives are serializable
      */
@@ -45,5 +48,18 @@ public class BankAccount implements Serializable {
         this.balance -= amount;
         lastTxType = 'w';
         lastTxAmount = amount;
+    }
+
+    private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
+        objectOutputStream.defaultWriteObject();
+    }
+
+    private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
+        ObjectInputStream.GetField fields = objectInputStream.readFields();
+        this.id = (String) fields.get("id", null);
+        this.balance = fields.get("balance", 0);
+        this.lastTxType = fields.get("lastTxType", 'u');
+        this.lastTxAmount = fields.get("lastTxAmount", -1);
+
     }
 }

@@ -82,3 +82,29 @@ Creating Class Version Compatibility
     *Can pass class name on command line: Display value to console
     *Can use -show option: Opens a simple GUI
 
+Customizing Serialization
+-Can add custom serialization handling:
+    *Add writeObject method to type
+    *Add readObject method to type
+-Methods called through reflection, methods normally marked private
+
+Implementing writeObject method
+-Return type of void
+-Include throws clause, IOException
+-Accepts ObjectOutputStream
+    *Use to write values
+    *defaultWriteObject for default behavior
+
+Implementing readObject method
+-Return type of void
+-Include throws clause
+    *IOException
+    *ClassNotFoundException
+-Accepts ObjectInputStream
+    *Use to read values
+    *Use readFields to get field name info, can access values by name
+    *defaultReaderObject for default behavior
+
+
+
+
